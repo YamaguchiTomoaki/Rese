@@ -12,4 +12,14 @@ class Shop extends Model
     protected $guarded = [
         'id',
     ];
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
 }

@@ -8,6 +8,12 @@ body {
     display: flex;
     align-items: center;
     margin-top: 50px;
+    justify-content: space-between;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
 }
 
 /*アイコンの枠*/

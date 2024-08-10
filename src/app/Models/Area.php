@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Area extends Model
 {
     use HasFactory;
+
+    protected $guarded = [
+        'id',
+    ];
+
+    public function shop()
+    {
+        return $this->hasMany(Shop::class);
+    }
 }

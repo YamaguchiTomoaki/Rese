@@ -1,0 +1,94 @@
+body {
+    background: #EEEEEE;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.back__btn {
+    background-color: #305DFF;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #305DFF;
+    border-radius: 4px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.batsu {
+    display: block;
+    position: relative;
+}
+
+.batsu::before,
+.batsu::after {
+    /* 共通設定 */
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    /* 棒の幅（太さ） */
+    height: 30px;
+    /* 棒の高さ */
+    background: #fff;
+}
+
+.batsu::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.batsu::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.nav__content {
+    width: 30%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav__home {
+    display: block;
+    text-decoration: none;
+    color: #305DFF;
+    font-size: 40px;
+}
+
+.nav__logout {
+    display: block;
+    text-decoration: none;
+    color: #305DFF;
+    font-size: 40px;
+}
+
+.nav__mypage {
+    display: block;
+    text-decoration: none;
+    color: #305DFF;
+    font-size: 40px;
+}
+
+.nav__registration {
+    display: block;
+    text-decoration: none;
+    color: #305DFF;
+    font-size: 40px;
+}
+
+.nav__login {
+    display: block;
+    text-decoration: none;
+    color: #305DFF;
+    font-size: 40px;
+}

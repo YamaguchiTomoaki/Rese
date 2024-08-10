@@ -15,11 +15,33 @@ class Shop extends Model
 
     public function area()
     {
-        return $this->belongsTo(Area::class);
+        return $this->belongsTo(Area::class, 'areas');
+        //return $this->belongsTo('App\Models\Area');
     }
 
     public function genre()
     {
-        return $this->belongsTo(Genre::class);
+        return $this->belongsTo(Genre::class, 'genres');
+    }
+
+    public function scopeAreaSearch($query, $area)
+    {
+        if ($area != 'null') {
+            $query->where('areas', $area);
+        }
+    }
+
+    public function scopeGenreSearch($query, $genre)
+    {
+        if ($genre != 'null') {
+            $query->where('genres', $genre);
+        }
+    }
+
+    public function scopeShopSearch($query, $name)
+    {
+        if ($name != 'null') {
+            $query->where('name', 'like', '%' . $name . '%');
+        }
     }
 }

@@ -14,13 +14,15 @@
 <body>
     <header class="header">
         <div class="header__inner">
-            <div class="header__icon">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="header__logo">
-                <a class="header__nav" href="/nav">Rese</a>
+            <div class="header__left">
+                <div class="header__icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="header__logo">
+                    <a class="header__nav" href="/nav">Rese</a>
+                </div>
             </div>
             @yield('header')
         </div>

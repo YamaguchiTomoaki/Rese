@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\OriginalLoginController;
 use App\Http\Controllers\OriginalRegisterController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
-Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
 Route::get('/nav', [NavigationController::class, 'nav']);
-Route::post('register', [OriginalRegisterController::class, 'store']);
+Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
+
+Route::post('/register', [OriginalRegisterController::class, 'store']);
+Route::post('/login', [OriginalLoginController::class, 'store']);
+
+Route::middleware('auth')->group(function () {
+    Route::post('/favorite', [FavoriteController::class, 'store']);
+    Route::post('/remove', [FavoriteController::class, 'delete']);
+});

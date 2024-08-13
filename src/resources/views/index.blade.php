@@ -51,16 +51,21 @@
                 </div>
                 <div class="card__content-btn">
                     <a href="/detail/{{ $shopArray[$id]['id'] }}" class="card__content-btn-detail">詳しく見る</a>
-                    <form class="favorite-form" action="/" method="post">
+                    @if ($shopArray[$id]['favorite'] == 1)
+                    <form class="favorite-form" action="/remove" method="post">
                         @csrf
-                        <input type="hidden" name="user_id" value="">
-                        <input type="hidden" name="shop_id" value="">
-                        @if ($shopArray[$id]['favorite'] == 1)
+                        <input type="hidden" name="user_id" value="{{ $user_id }}">
+                        <input type="hidden" name="shop_id" value="{{ $shopArray[$id]['id'] }}">
                         <button class="card__content-btn-favorite--off" type="submit">❤</button>
-                        @else
-                        <button class="card__content-btn-favorite--on" type="submit">❤</button>
-                        @endif
                     </form>
+                    @else
+                    <form class="favorite-form" action="/favorite" method="post">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ $user_id }}">
+                        <input type="hidden" name="shop_id" value="{{ $shopArray[$id]['id'] }}">
+                        <button class="card__content-btn-favorite--on" type="submit">❤</button>
+                    </form>
+                    @endif
                 </div>
             </div>
     </div>

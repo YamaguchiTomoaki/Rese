@@ -24,7 +24,7 @@ class OriginalRegisterRequest extends FormRequest
         return [
             'name' => 'required | string | max:255',
             'email' => 'required | unique:users,email, | string | max:255',
-            'password' => 'required | confirmed | string | max:255',
+            'password' => 'required | string | max:255',
         ];
     }
 
@@ -39,7 +39,6 @@ class OriginalRegisterRequest extends FormRequest
             'email.string' => 'メールアドレスを文字列で入力してください',
             'email.max' => 'メールアドレスを255文字以内で入力してください',
             'password.required' => 'パスワードを入力してください',
-            'password.confirmed' => 'パスワードと確認用パスワードが一致しません',
             'password.string' => 'パスワードを文字列で入力してください',
             'password.max' => 'パスワードを255文字以内で入力してください',
         ];

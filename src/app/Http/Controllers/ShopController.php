@@ -24,16 +24,18 @@ class ShopController extends Controller
                 ['user_id', '=', $user['id']],
             ])->orderBy('shop_id')->get();
             $favoriteCount = count($favorite);
+            $user_id = $user['id'];
         } else {
             $favorite = null;
+            $user_id = null;
         }
         $shop = Shop::with('area', 'genre')->get();
         $shopArray = $shop->toArray();
         $shopCount = count($shopArray);
-        if ($user != null) {
+        if ($user != null && $favoriteCount != 0) {
             for ($id = 0; $id < $shopCount; $id++) {
                 for ($favoriteId = 0; $favoriteId < $favoriteCount; $favoriteId++) {
-                    if ($shopArray[$id]['id'] == $favorite[$favoriteCount]['shop_id']) {
+                    if ($shopArray[$id]['id'] == $favorite[$favoriteId]['shop_id']) {
                         $shopArray[$id]['favorite'] = 1;
                         break;
                     } else if ($favoriteId == $favoriteCount - 1) {
@@ -51,7 +53,7 @@ class ShopController extends Controller
             $shopArray[$id]['genre'] = $shopArray[$id]['genre']['genre'];
         }
 
-        return view('index', compact('shopArray', 'shopCount', 'areas', 'genres'));
+        return view('index', compact('shopArray', 'shopCount', 'areas', 'genres', 'user_id'));
     }
 
     public function search(Request $request)

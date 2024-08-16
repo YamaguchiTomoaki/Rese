@@ -11,6 +11,7 @@
         <form class="register-form" action="/register" method="post">
             @csrf
             <div class="register-form__group">
+                <div class="profile-solid icon"></div>
                 <input class="register-form__input" type="text" name="name" placeholder="Username" value="{{ old('name') }}">
                 <p class="register-form__error-message">
                     @error('name')
@@ -19,6 +20,7 @@
                 </p>
             </div>
             <div class="register-form__group">
+                <div class="mail-solid icon"></div>
                 <input class="register-form__input" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
                 <p class="register-form__error-message">
                     @error('email')
@@ -27,6 +29,7 @@
                 </p>
             </div>
             <div class="register-form__group">
+                <div class="lock-solid icon"></div>
                 <input class="register-form__input" type="password" name="password" placeholder="Password">
                 <p class="register-form__error-message">
                     @error('password')

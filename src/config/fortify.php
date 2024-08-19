@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
 
 return [
@@ -73,7 +74,12 @@ return [
     |
     */
 
-    'home' => '/home',
+    'home' => RouteServiceProvider::HOME,
+    /* 'test'を作成
+    redirectsregister
+            register後のリダイレクト先変更ようにテスト的に作成
+    　リダイレクト先を分けることができたがこのやり方であっているのか不明 */
+    'register' => '/thanks',
 
     /*
     |--------------------------------------------------------------------------

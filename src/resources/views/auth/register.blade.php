@@ -13,6 +13,9 @@
             <div class="register-form__group">
                 <div class="profile-solid icon"></div>
                 <input class="register-form__input" type="text" name="name" placeholder="Username" value="{{ old('name') }}">
+
+            </div>
+            <div class="error-message__group">
                 <p class="register-form__error-message">
                     @error('name')
                     {{ $message }}
@@ -22,6 +25,9 @@
             <div class="register-form__group">
                 <div class="mail-solid icon"></div>
                 <input class="register-form__input" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+
+            </div>
+            <div class="error-message__group">
                 <p class="register-form__error-message">
                     @error('email')
                     {{ $message }}
@@ -31,6 +37,9 @@
             <div class="register-form__group">
                 <div class="lock-solid icon"></div>
                 <input class="register-form__input" type="password" name="password" placeholder="Password">
+
+            </div>
+            <div class="error-message__group">
                 <p class="register-form__error-message">
                     @error('password')
                     {{ $message }}

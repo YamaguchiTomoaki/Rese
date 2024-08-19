@@ -53,7 +53,7 @@ class OriginalLoginController extends Controller
     /**
      * Attempt to authenticate a new session.
      *
-     * @param  \Laravel\Fortify\Http\Requests\LoginRequest  $request
+     * @param  \App\Http\Requests\OriginalLoginRequest  $request
      * @return mixed
      */
     public function store(OriginalLoginRequest $request)
@@ -66,7 +66,7 @@ class OriginalLoginController extends Controller
     /**
      * Get the authentication pipeline instance.
      *
-     * @param  \Laravel\Fortify\Http\Requests\LoginRequest  $request
+     * @param  \App\Http\Requests\OriginalLoginRequest  $request
      * @return \Illuminate\Pipeline\Pipeline
      */
     protected function loginPipeline(OriginalLoginRequest $request)

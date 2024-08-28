@@ -24,6 +24,16 @@ class Shop extends Model
         return $this->belongsTo(Genre::class, 'genres');
     }
 
+    public function favorite()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function reservation()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
     public function scopeAreaSearch($query, $area)
     {
         if ($area != 'null') {

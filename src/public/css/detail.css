@@ -2,7 +2,9 @@
     display: flex;
 }
 
-.shop__content {}
+.shop__content {
+    width: 1200px;
+}
 
 .shop__ttl {
     display: flex;
@@ -25,7 +27,7 @@
 }
 
 .shop__image img {
-    width: 50%;
+    width: 100%;
     border-radius: 4px 4px 0 0;
 }
 
@@ -46,7 +48,93 @@
 
 .shop__overview {
     font-size: 16px;
-    width: 50%;
+    width: 100%;
 }
 
-.reservation__content {}
+
+.reservation__content {
+    border-radius: 4px;
+    width: 1200px;
+    margin-left: 100px;
+
+}
+
+.reservation-form {}
+
+.reservation-form__content {
+    background-color: #305DFF;
+    padding: 30px 30px 300px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.ttl__text-reservation {
+    color: #fff;
+}
+
+.reservation__date input {
+    width: 30%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.reservation__time select {
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.reservation__number select {
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.reservation-form__error-message {
+    color: #fff;
+}
+
+.shop__confirm {
+    background-color: #4D7FFF;
+    border-radius: 4px;
+    padding: 30px;
+    text-align: left;
+}
+
+.table__row {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.table__ttl {
+    color: #fff;
+}
+
+.table__item {
+    color: #fff;
+    padding-left: 50px;
+}
+
+.table__item p {
+    margin: 0;
+}
+
+.reservation__button {}
+
+.reservation__button button {
+    color: #fff;
+    font-size: 16px;
+    background-color: #0538FF;
+    border: 1px solid #0538FF;
+    border-radius: 0 0 4px 4px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}

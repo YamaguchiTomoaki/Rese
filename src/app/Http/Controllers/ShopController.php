@@ -6,6 +6,7 @@ use App\Models\Area;
 use App\Models\Favorite;
 use App\Models\Genre;
 use App\Models\Shop;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -70,15 +71,17 @@ class ShopController extends Controller
                 ['user_id', '=', $user['id']],
             ])->orderBy('shop_id')->get();
             $favoriteCount = count($favorite);
+            $user_id = $user['id'];
         } else {
             $favorite = null;
+            $user_id = null;
         }
         $shopArray = $shop->toArray();
         $shopCount = count($shopArray);
         if ($user != null) {
             for ($id = 0; $id < $shopCount; $id++) {
                 for ($favoriteId = 0; $favoriteId < $favoriteCount; $favoriteId++) {
-                    if ($shopArray[$id]['id'] == $favorite[$favoriteCount]['shop_id']) {
+                    if ($shopArray[$id]['id'] == $favorite[$favoriteId]['shop_id']) {
                         $shopArray[$id]['favorite'] = 1;
                         break;
                     } else if ($favoriteId == $favoriteCount - 1) {
@@ -96,7 +99,7 @@ class ShopController extends Controller
             $shopArray[$id]['genre'] = $shopArray[$id]['genre']['genre'];
         }
 
-        return view('index', compact('shopArray', 'shopCount', 'areas', 'genres'));
+        return view('index', compact('shopArray', 'shopCount', 'areas', 'genres', 'user_id'));
     }
 
     public function detail(Shop $shop_id)
@@ -108,7 +111,6 @@ class ShopController extends Controller
 
         $shopArray['area'] = $area['area'];
         $shopArray['genre'] = $genre['genre'];
-
         return view('detail', compact('shopArray'));
     }
 }

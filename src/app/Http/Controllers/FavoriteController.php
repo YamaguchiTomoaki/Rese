@@ -27,4 +27,14 @@ class FavoriteController extends Controller
 
         return redirect('/');
     }
+
+    public function mypage(Request $request)
+    {
+        Favorite::where([
+            ['user_id', '=', $request->user_id],
+            ['shop_id', '=', $request->shop_id],
+        ])->delete();
+
+        return redirect('/mypage');
+    }
 }

@@ -1,0 +1,192 @@
+.mypage__header {
+    text-align: center;
+}
+
+.user_name {
+    font-size: 30px;
+}
+
+.mypage__content {
+    display: flex;
+}
+
+.reservation__content {
+    width: 600px;
+}
+
+.ttl__text {
+    margin: 30px 0 0 0;
+}
+
+.reservation__card {
+    width: 100%;
+    background-color: #305DFF;
+    border-radius: 4px;
+    height: 300px;
+    padding: 30px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+}
+
+.card__header--reservation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card__header--icon {
+    display: flex;
+    align-items: center;
+}
+
+.clock-h9m0-solid.icon {
+    color: #fff;
+    position: absolute;
+    margin-left: 2px;
+    margin-top: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: currentColor;
+    border: solid 1px currentColor;
+    border-radius: 16px;
+}
+
+.clock-h9m0-solid.icon:before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 6px;
+    width: 10px;
+    height: 2px;
+    color: #305DFF;
+    background-color: currentColor;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+}
+
+.clock-h9m0-solid.icon:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 14px;
+    width: 2px;
+    height: 12px;
+    color: #305DFF;
+    background-color: currentColor;
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+}
+
+.card__ttl--reservation {
+    margin-left: 70px;
+}
+
+.card__ttl--reservation {
+    color: #fff;
+}
+
+.table__item {
+    padding-left: 30px;
+    color: #fff;
+}
+
+.cancel__button {
+    font-size: 18px;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background-color: #305DFF;
+    cursor: pointer;
+}
+
+.reservation-table {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.table__row {
+    height: 50px;
+}
+
+.table__ttl {
+    color: #fff;
+}
+
+.favorite__content {
+    width: 1200px;
+    margin-left: 200px;
+}
+
+.card__wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 360px;
+    margin: 30px 60px 0 0;
+    border-radius: 4px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card__img img {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
+
+.card__content {
+    padding: 15px 25px;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+}
+
+.card__content-ttl {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    /* 要素の文字数に応じて幅が変更されるためにinline-blockを指定 */
+}
+
+.card__content-tag {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.card__content-tag-area {
+    display: inline-block;
+    margin: 0;
+    /* 横並びにするためにinline-blockを指定 */
+}
+
+.card__content-tag-genre {
+    display: inline-block;
+    /* 横並びにするためにinline-blockを指定 */
+    margin: 0;
+}
+
+.card__content-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+}
+
+.card__content-btn-detail {
+    text-decoration: none;
+    background: #305DFF;
+    border: 1px solid #305DFF;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 16px;
+}
+
+.card__content-btn-favorite--off {
+    border: none;
+    font-size: 50px;
+    color: #ff0000;
+    background-color: #fff;
+    cursor: pointer;
+}

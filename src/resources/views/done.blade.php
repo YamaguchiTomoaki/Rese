@@ -5,14 +5,14 @@
 @endsection
 
 @section('content')
-<div class="thanks__content">
-    <div class="thanks__ttl">
+<div class="done__content">
+    <div class="done__ttl">
         <h2 class="ttl__text">
             ご予約ありがとうございます
         </h2>
     </div>
-    <div class="thanks__button">
-        <a class="thanks__link" href="/login">ログインする</a>
+    <div class="done__button">
+        <button type="button" class="back__btn" onClick="history.back()">戻る</button>
     </div>
 </div>
 @endsection

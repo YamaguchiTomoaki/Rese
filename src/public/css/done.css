@@ -1,0 +1,33 @@
+.done__content {
+    width: 35%;
+    height: 350px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    margin: 100px auto;
+    text-align: center;
+}
+
+.done__ttl {
+    margin-top: 120px;
+}
+
+.ttl__text {
+    margin: 0;
+    font-size: 26px;
+}
+
+.done__button {
+    margin-top: 50px;
+}
+
+.back__btn {
+    color: #fff;
+    background-color: #305DFF;
+    border: 1px solid #305DFF;
+    border-radius: 4px;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}

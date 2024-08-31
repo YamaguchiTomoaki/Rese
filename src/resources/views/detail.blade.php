@@ -24,7 +24,7 @@
         <p class="shop__overview">{{ $shopArray['overview'] }}</p>
     </div>
     <div class="reservation__content">
-        <form class="reservation-form" action="/reservation" method="post">
+        <form class="reservation-form" action="/done" method="post">
             @csrf
             <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
             <div class="reservation-form__content">
@@ -42,31 +42,42 @@
                     </p>
                 </div>
                 <div class="reservation__time">
-                    <select name="time" id="time">
-                        @for ($hour = 0; $hour < 24; $hour++)
-                            @for ($minutes=0; $minutes < 60; $minutes +=30)
-                            @if ($minutes==0)
-                            <option value="{{ $hour }}:0{{ $minutes }}">{{ $hour }}:0{{ $minutes }}</option>
-                            @else
-                            <option value="{{ $hour }}:{{ $minutes }}">{{ $hour }}:{{ $minutes }}</option>
-                            @endif
-                            @endfor
-                            @endfor
-                    </select>
+                    <div class="select__pointer">
+                        <select name="time" id="time">
+                            @for ($hour = 0; $hour < 24; $hour++)
+                                @for ($minutes=0; $minutes < 60; $minutes +=30)
+                                @if ($hour < 10 && $minutes==0)
+                                <option value="0{{ $hour }}:0{{ $minutes }}" @if(old('time')=='0' . $hour . ':0' . $minutes) selected @endif>{{ $hour }}:0{{ $minutes }}</option>
+                                @elseif($minutes == 0)
+                                <option value="{{ $hour }}:0{{ $minutes }}" @if(old('time')==$hour . ':0' . $minutes) selected @endif>{{ $hour }}:0{{ $minutes }}</option>
+                                @elseif($hour < 10)
+                                    <option value=" 0{{ $hour }}:{{ $minutes }}" @if(old('time')=='0' . $hour . ':' . $minutes) selected @endif>{{ $hour }}:{{ $minutes }}</option>
+                                    @else
+                                    <option value=" {{ $hour }}:{{ $minutes }}" @if(old('time')==$hour . ':' . $minutes) selected @endif>{{ $hour }}:{{ $minutes }}</option>
+                                    @endif
+                                    @endfor
+                                    @endfor
+                        </select>
+                    </div>
                 </div>
-                <div class="error-message__group">
+                <div class=" error-message__group">
                     <p class="reservation-form__error-message">
                         @error('time')
+                        {{ $message }}
+                        @enderror
+                        @error('date_time')
                         {{ $message }}
                         @enderror
                     </p>
                 </div>
                 <div class="reservation__number">
-                    <select name="number" id="number">
-                        @for ($count = 1; $count < 11; $count++)
-                            <option value="{{ $count }}">{{ $count }}人</option>
-                            @endfor
-                    </select>
+                    <div class="select__pointer">
+                        <select name="number" id="number">
+                            @for ($count = 1; $count < 11; $count++)
+                                <option value="{{ $count }}" @if(old('number')==$count) selected @endif>{{ $count }}人</option>
+                                @endfor
+                        </select>
+                    </div>
                 </div>
                 <div class="error-message__group">
                     <p class="reservation-form__error-message">
@@ -118,13 +129,21 @@
 
                             window.onload = function() {
                                 output__date.innerText = date.value;
-                                output__time.innerText = time.value;
+                                if (time.value.slice(0, 1) == '0') {
+                                    output__time.innerText = time.value.slice(1);
+                                } else {
+                                    output__time.innerText = time.value;
+                                }
                                 output__number.innerText = number.value + "人";
                             }
 
                             function inputChange(event) {
                                 output__date.innerText = date.value;
-                                output__time.innerText = time.value;
+                                if (time.value.slice(0, 1) == '0') {
+                                    output__time.innerText = time.value.slice(1);
+                                } else {
+                                    output__time.innerText = time.value;
+                                }
                                 output__number.innerText = number.value + "人";
                             }
                             let date = document.getElementById('date');

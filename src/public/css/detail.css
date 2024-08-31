@@ -80,7 +80,27 @@
     padding-left: 10px;
 }
 
+.reservation__time {
+    position: relative;
+}
+
+.reservation__number {
+    position: relative;
+}
+
+.select__pointer::before {
+    position: absolute;
+    content: "";
+    top: 30%;
+    right: 11%;
+    height: 12px;
+    width: 20px;
+    background: #ddd;
+    clip-path: polygon(0 0, 50% 30%, 100% 0, 50% 100%);
+}
+
 .reservation__time select {
+    appearance: none;
     width: 90%;
     height: 30px;
     border: none;
@@ -89,6 +109,7 @@
 }
 
 .reservation__number select {
+    appearance: none;
     width: 90%;
     height: 30px;
     border: none;

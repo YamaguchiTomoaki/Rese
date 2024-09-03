@@ -79,7 +79,8 @@ return [
     redirectsregister
             register後のリダイレクト先変更ようにテスト的に作成
     　リダイレクト先を分けることができたがこのやり方であっているのか不明 */
-    'register' => '/thanks',
+    /*'register' => '/thanks',*/
+    'thanks' => '/thanks',
 
     /*
     |--------------------------------------------------------------------------
@@ -152,7 +153,7 @@ return [
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
-        // Features::emailVerification(),
+        Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
         Features::twoFactorAuthentication([

@@ -12,7 +12,10 @@
         </h2>
     </div>
     <div class="thanks__button">
-        <a class="thanks__link" href="/login">ログインする</a>
+        <form class="d-inline" method="POST" action="/email/verification-notification">
+            @csrf
+            <p>メールが届いていない場合は下記のボタンをクリックしてください<br />再度認証メールを送信します</p>
+            <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('再送する') }}</button>
     </div>
 </div>
 @endsection

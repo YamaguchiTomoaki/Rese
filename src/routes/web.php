@@ -8,6 +8,7 @@ use App\Http\Controllers\OriginalLoginController;
 use App\Http\Controllers\OriginalRegisterController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ShopController;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -25,7 +26,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::post('/register', [OriginalRegisterController::class, 'store']);
 Route::post('/login', [OriginalLoginController::class, 'store']);
-Route::get('/thanks', [OriginalRegisterController::class, 'thanks']);
 
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
@@ -58,4 +58,6 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/done', [ReservationController::class, 'reservation']);
     Route::post('/cancel', [ReservationController::class, 'cancel']);
     Route::post('/mypage/remove', [FavoriteController::class, 'mypage']);
+    Route::get('/change', [ReservationController::class, 'change']);
+    Route::post('/change/reservation', [ReservationController::class, 'update']);
 });

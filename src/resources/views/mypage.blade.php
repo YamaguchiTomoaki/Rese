@@ -22,6 +22,13 @@
                         予約{{ $id+1 }}
                     </div>
                 </div>
+                <form class="reservation-form__change" action="/change" method="get">
+                    @csrf
+                    <div class="reservation-form__btn">
+                        <input type="hidden" name="reservation_id" value="{{ $reservationArray[$id]['id'] }}">
+                        <button class="change__button">予約変更</button>
+                    </div>
+                </form>
                 <form class="reservation-form" action="/cancel" method="post">
                     @csrf
                     <div class="reservation-form__btn">

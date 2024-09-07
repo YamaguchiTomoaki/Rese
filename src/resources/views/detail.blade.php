@@ -4,9 +4,6 @@
 <link rel="stylesheet" href="{{ asset('css/detail.css') }}" />
 @endsection
 
-@section('header')
-@endsection
-
 @section('content')
 <div class="detail__content">
     <div class="shop__content">

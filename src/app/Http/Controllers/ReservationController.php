@@ -26,11 +26,32 @@ class ReservationController extends Controller
 
     public function cancel(Request $request)
     {
-        $test = $request->reservation_id;
         Reservation::where([
             ['id', '=', $request->reservation_id],
         ])->delete();
 
         return redirect('/mypage');
+    }
+
+    public function change(Request $request)
+    {
+        $reservation = Reservation::with('shop:id,name')->where([
+            ['id', '=', $request->reservation_id],
+        ])->get();
+        $reservationArray = $reservation->toArray();
+        $headstr = substr($reservationArray[0]['time'], 0, 1);
+        return view('change', compact('reservationArray', 'headstr'));
+    }
+
+    public function update(ReservationRequest $request)
+    {
+        $reservation = [
+            'date' => $request->date,
+            'time' => $request->time,
+            'number' => $request->number,
+        ];
+        Reservation::find($request->id)->update($reservation);
+
+        return view('done');
     }
 }

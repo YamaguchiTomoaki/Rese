@@ -34,6 +34,11 @@ class Shop extends Model
         return $this->hasMany(Reservation::class);
     }
 
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function scopeAreaSearch($query, $area)
     {
         if ($area != 'null') {

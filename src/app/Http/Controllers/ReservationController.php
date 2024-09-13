@@ -52,6 +52,6 @@ class ReservationController extends Controller
         ];
         Reservation::find($request->id)->update($reservation);
 
-        return view('done');
+        return redirect('/mypage');
     }
 }

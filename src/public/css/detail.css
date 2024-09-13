@@ -3,7 +3,7 @@
 }
 
 .shop__content {
-    width: 1200px;
+    width: 45%;
 }
 
 .shop__ttl {
@@ -24,6 +24,17 @@
 
 .ttl__text {
     margin-left: 10px;
+}
+
+.review__btn {
+    color: #fff;
+    font-size: 16px;
+    background-color: #0538FF;
+    border: 1px solid #0538FF;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .shop__image img {
@@ -54,12 +65,10 @@
 
 .reservation__content {
     border-radius: 4px;
-    width: 1200px;
-    margin-left: 100px;
+    width: 45%;
+    margin-left: 10%;
 
 }
-
-.reservation-form {}
 
 .reservation-form__content {
     background-color: #305DFF;

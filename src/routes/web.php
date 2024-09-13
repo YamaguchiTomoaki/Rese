@@ -7,6 +7,7 @@ use App\Http\Controllers\OriginalEmailVerificationPromptController;
 use App\Http\Controllers\OriginalLoginController;
 use App\Http\Controllers\OriginalRegisterController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +31,7 @@ Route::post('/login', [OriginalLoginController::class, 'store']);
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/nav', [NavigationController::class, 'nav']);
-Route::get('/detail/{shop_id}', [ShopController::class, 'detail']);
+Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shop.detail');
 
 Route::get('/thanks', function () {
     //ここでメール認証せずにログインして認証必要ページにいった場合に下記で指定したビューが表示される
@@ -52,7 +53,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 Route::middleware('auth', 'verified')->group(function () {
-    Route::post('/favorite', [FavoriteController::class, 'store']);
+    Route::post('/favorite', [FavoriteController::class, 'create']);
     Route::post('/remove', [FavoriteController::class, 'delete']);
     Route::get('/mypage', [MyPageController::class, 'mypage']);
     Route::post('/done', [ReservationController::class, 'reservation']);
@@ -60,4 +61,6 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/mypage/remove', [FavoriteController::class, 'mypage']);
     Route::get('/change', [ReservationController::class, 'change']);
     Route::post('/change/reservation', [ReservationController::class, 'update']);
+    Route::get('/review', [ReviewController::class, 'review']);
+    Route::post('/review/post', [ReviewController::class, 'create']);
 });

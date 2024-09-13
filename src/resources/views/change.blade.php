@@ -7,7 +7,6 @@
 @section('content')
 <form class="change-form" action="/change/reservation" method="post">
     @csrf
-
     <div class="change__content">
         <div class="change__ttl">
             <button type="button" class="back__btn" onClick="history.back()">＜</button>

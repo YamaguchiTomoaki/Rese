@@ -1,0 +1,93 @@
+.review__content {
+    width: 25%;
+    margin: 200px auto;
+}
+
+.review__ttl {
+    background-color: #305DFF;
+    border: 1px solid #305DFF;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding-left: 20px;
+}
+
+.back__btn {
+    height: 30px;
+    background-color: #305DFF;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.review-form__content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    padding: 0 20px 20px 20px;
+}
+
+
+.star__button {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
+.star__button input[type=radio] {
+    display: none;
+}
+
+.star__button label {
+    position: relative;
+    padding: 0 5px;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.star__button label:hover {
+    color: #ffcc00;
+}
+
+.star__button label:hover~label {
+    color: #ffcc00;
+}
+
+.star__button input[type=radio]:checked~label {
+    color: #ffcc00;
+}
+
+.comment__content {
+    text-align: center;
+}
+
+.comment__content textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+}
+
+.review__button {
+    text-align: right;
+}
+
+.review__button button {
+    background-color: #305DFF;
+    color: #fff;
+    border: 1px solid #305DFF;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+}
+
+.error-message__group {
+    text-align: center;
+}

@@ -10,6 +10,10 @@
         <div class="shop__ttl">
             <button type="button" class="back__btn" onClick="history.back()">＜</button>
             <h2 class="ttl__text">{{ $shopArray['name'] }}</h2>
+            <form class="review-form" action="/review" method="get">
+                <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
+                <button class="review__btn">レビュー</button>
+            </form>
         </div>
         <div class="shop__image">
             <img src="{{ $shopArray['image_id'] }}" alt="" />

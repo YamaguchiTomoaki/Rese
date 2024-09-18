@@ -6,6 +6,7 @@ use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\OriginalEmailVerificationPromptController;
 use App\Http\Controllers\OriginalLoginController;
 use App\Http\Controllers\OriginalRegisterController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
@@ -63,4 +64,6 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/change/reservation', [ReservationController::class, 'update']);
     Route::get('/review', [ReviewController::class, 'review']);
     Route::post('/review/post', [ReviewController::class, 'create']);
+    Route::get('/payment', [PaymentController::class, 'payView']);
+    Route::post('payment/store', [PaymentController::class, 'store'])->name('payment.store');
 });

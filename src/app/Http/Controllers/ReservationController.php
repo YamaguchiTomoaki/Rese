@@ -19,6 +19,7 @@ class ReservationController extends Controller
             'date' => $request->date,
             'time' => $request->time,
             'number' => $request->number,
+            'visit_flag' => false,
         ];
         Reservation::create($reservation);
         return view('done');

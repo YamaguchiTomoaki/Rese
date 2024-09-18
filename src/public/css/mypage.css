@@ -98,6 +98,16 @@
     cursor: pointer;
 }
 
+.payment__link {
+    text-decoration: none;
+    font-size: 15px;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 4px;
+    background-color: #305DFF;
+    cursor: pointer;
+}
+
 .cancel__button {
     font-size: 18px;
     color: #fff;
@@ -106,6 +116,7 @@
     background-color: #305DFF;
     cursor: pointer;
 }
+
 
 .reservation-table {
     margin-top: 20px;

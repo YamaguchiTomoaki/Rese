@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('number');
+            $table->boolean('visit_flag');
             $table->timestamps();
         });
     }

@@ -28,6 +28,9 @@
                         <button class="change__button">予約変更</button>
                     </div>
                 </form>
+                <div class="advance-payment__button">
+                    <a class="payment__link" href="/payment">事前決済</a>
+                </div>
                 <form class="reservation-form" action="/cancel" method="post">
                     @csrf
                     <div class="reservation-form__btn">

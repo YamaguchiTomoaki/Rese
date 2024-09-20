@@ -12,7 +12,7 @@
         {{ csrf_field() }}
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key={{ config('stripe.stripe_public_key') }}
+            data-key={{ config('stripte.stripe_public_key') }}
             data-amount="1000"
             data-name="Stripe Demo"
             data-label="決済をする"

@@ -52,7 +52,7 @@
                                 @elseif($minutes == 0)
                                 <option value="{{ $hour }}:0{{ $minutes }}" @if(old('time')==$hour . ':0' . $minutes) selected @endif>{{ $hour }}:0{{ $minutes }}</option>
                                 @elseif($hour < 10)
-                                    <option value=" 0{{ $hour }}:{{ $minutes }}" @if(old('time')=='0' . $hour . ':' . $minutes) selected @endif>{{ $hour }}:{{ $minutes }}</option>
+                                    <option value="0{{ $hour }}:{{ $minutes }}" @if(old('time')=='0' . $hour . ':' . $minutes) selected @endif>{{ $hour }}:{{ $minutes }}</option>
                                     @else
                                     <option value=" {{ $hour }}:{{ $minutes }}" @if(old('time')==$hour . ':' . $minutes) selected @endif>{{ $hour }}:{{ $minutes }}</option>
                                     @endif
@@ -146,7 +146,9 @@
                                     output__time.innerText = time.value;
                                 }
                                 output__number.innerText = number.value + "人";
+
                             }
+
                             let date = document.getElementById('date');
                             date.addEventListener('change', inputChange);
                             let output__date = document.getElementById('output__date');

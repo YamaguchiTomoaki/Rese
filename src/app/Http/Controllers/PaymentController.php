@@ -19,7 +19,7 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         try {
-            Stripe::setApiKey(config('stripe.stripe_secret_key'));
+            Stripe::setApiKey(config('stripte.stripe_secret_key'));
 
             $customer = Customer::create(array(
                 'email' => $request->stripeEmail,

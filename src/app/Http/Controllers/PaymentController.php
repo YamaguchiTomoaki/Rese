@@ -26,9 +26,11 @@ class PaymentController extends Controller
                 'source' => $request->stripeToken
             ));
 
+
+
             $charge = Charge::create(array(
                 'customer' => $customer->id,
-                'amount' => 1000,
+                'amount' => $request->pay,
                 'currency' => 'jpy'
             ));
 

@@ -2,6 +2,17 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/mypage.css') }}" />
+<link rel="stylesheet" href="./css/bootstrap.css">
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap.js"></script>
+<style type="text/css">
+    button.stripe-button-el,
+    button.stripe-button-el>span {
+        background-color: #305DFF !important;
+        border: 1px solid #fff;
+        background-image: none;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -29,7 +40,22 @@
                     </div>
                 </form>
                 <div class="advance-payment__button">
-                    <a class="payment__link" href="/payment">事前決済</a>
+                    <form action="{{ route('payment.store') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="pay" value="{{ 3000 * $reservationArray[$id]['number'] }}">
+                        <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key={{ config('stripte.stripe_public_key') }}
+                            data-amount=" {{ 3000 * $reservationArray[$id]['number'] }}"
+                            data-name="Stripe Demo"
+                            data-label="決済をする"
+                            data-description="Online course about integrating Stripe"
+                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                            data-locale="auto"
+                            data-currency="JPY">
+                        </script>
+                    </form>
+
                 </div>
                 <form class="reservation-form" action="/cancel" method="post">
                     @csrf

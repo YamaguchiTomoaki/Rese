@@ -7,6 +7,7 @@ use App\Http\Controllers\OriginalEmailVerificationPromptController;
 use App\Http\Controllers\OriginalLoginController;
 use App\Http\Controllers\OriginalRegisterController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
@@ -66,4 +67,6 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/review/post', [ReviewController::class, 'create']);
     Route::get('/payment', [PaymentController::class, 'payView']);
     Route::post('payment/store', [PaymentController::class, 'store'])->name('payment.store');
+    Route::get('/qrcode', [QrCodeController::class, 'qrView']);
+    Route::get('/qrcode/{reservation_id}', [QrCodeController::class, 'visit']);
 });

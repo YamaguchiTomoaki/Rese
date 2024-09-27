@@ -55,8 +55,11 @@
                             data-currency="JPY">
                         </script>
                     </form>
-
                 </div>
+                <form class="qrcode-form" action="/qrcode" method="get">
+                    <input type="hidden" name="reservation_id" value="{{ $reservationArray[$id]['id'] }}">
+                    <input type="image" name="submit" src="{{asset('storage/qrcode.png')}}" width="30" height="30" alt="QRコード表示">
+                </form>
                 <form class="reservation-form" action="/cancel" method="post">
                     @csrf
                     <div class="reservation-form__btn">

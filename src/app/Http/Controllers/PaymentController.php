@@ -8,13 +8,10 @@ use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\Charge;
 use Exception;
+use App\Models\Reservation;
 
 class PaymentController extends Controller
 {
-    public function payView()
-    {
-        return view('payment');
-    }
 
     public function store(Request $request)
     {
@@ -33,6 +30,11 @@ class PaymentController extends Controller
                 'amount' => $request->pay,
                 'currency' => 'jpy'
             ));
+            $reservation = [
+                'payment_flag' => true,
+            ];
+            Reservation::find($request->reservation_id)->update($reservation);
+
 
             return back();
         } catch (Exception $ex) {

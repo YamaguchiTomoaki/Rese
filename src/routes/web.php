@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\AdminRegisterController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\NavigationController;
@@ -8,9 +11,11 @@ use App\Http\Controllers\OriginalLoginController;
 use App\Http\Controllers\OriginalRegisterController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\RepresentativeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
+use App\Http\Requests\AdminLoginRequest;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -34,6 +39,7 @@ Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/nav', [NavigationController::class, 'nav']);
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shop.detail');
+Route::get('/qrcode/{reservation_id}', [QrCodeController::class, 'visit']);
 
 Route::get('/thanks', function () {
     //ここでメール認証せずにログインして認証必要ページにいった場合に下記で指定したビューが表示される
@@ -54,7 +60,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::middleware('auth', 'verified')->group(function () {
+Route::middleware('auth:web', 'verified')->group(function () {
     Route::post('/favorite', [FavoriteController::class, 'create']);
     Route::post('/remove', [FavoriteController::class, 'delete']);
     Route::get('/mypage', [MyPageController::class, 'mypage']);
@@ -68,5 +74,21 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/payment', [PaymentController::class, 'payView']);
     Route::post('payment/store', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/qrcode', [QrCodeController::class, 'qrView']);
-    Route::get('/qrcode/{reservation_id}', [QrCodeController::class, 'visit']);
+});
+
+Route::get('/admin/login', [AdminLoginController::class, 'view'])->name('admin.login');;
+Route::post('/admin/login', [AdminLoginController::class, 'store'])->name('admin.login.store');
+Route::delete('/admin/logout', [AdminLoginController::class, 'destroy'])->name('admin.login.destroy');
+
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/admin', [AdminLoginController::class, 'index'])->name('admin');
+    Route::post('/admin/representative', [RepresentativeController::class, 'create']);
+});
+
+Route::get('/representative/login', [RepresentativeController::class, 'view'])->name('representative.login');;
+Route::post('/representative/login', [RepresentativeController::class, 'store'])->name('representative.login.store');
+Route::delete('/representative/logout', [RepresentativeController::class, 'destroy'])->name('representative.login.destroy');
+
+Route::middleware('auth:representative')->group(function () {
+    Route::get('/representative', [RepresentativeController::class, 'index'])->name('representative');
 });

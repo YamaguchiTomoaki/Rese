@@ -9,6 +9,14 @@ use App\Models\Shop;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
+
+//後で消す
+use App\Models\Reservation;
+use App\Models\User;
+use Illuminate\Console\Command;
+//後で消す
 
 class ShopController extends Controller
 {
@@ -111,5 +119,27 @@ class ShopController extends Controller
         $shopArray['area'] = $area['area'];
         $shopArray['genre'] = $genre['genre'];
         return view('detail', compact('shopArray'));
+    }
+
+    public function test()
+    {
+        $date = Carbon::now()->format('Y-m-d');
+        $reservations = Reservation::with('user')->where([
+            ['date', '=', $date],
+        ])->get();
+        $reservationsArray = $reservations->toArray();
+        dd($reservationsArray);
+        if ($reservations == 'null') {
+            $test = 1;
+            dd($test);
+            $reservationsCount = count($reservations);
+            for ($id = 0; $id < $reservationsCount; $id++) {
+                $users[$id] = $reservations[$id]['user'];
+                $reservation = $reservations[$id];
+            }
+        } else {
+            $test = 0;
+            dd($test);
+        }
     }
 }

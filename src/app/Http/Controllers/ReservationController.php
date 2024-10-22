@@ -20,6 +20,7 @@ class ReservationController extends Controller
             'time' => $request->time,
             'number' => $request->number,
             'visit_flag' => false,
+            'payment_flag' => false,
         ];
         Reservation::create($reservation);
         return view('done');

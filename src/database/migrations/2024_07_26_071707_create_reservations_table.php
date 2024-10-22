@@ -19,6 +19,7 @@ return new class extends Migration
             $table->time('time');
             $table->integer('number');
             $table->boolean('visit_flag');
+            $table->boolean('payment_flag');
             $table->timestamps();
         });
     }

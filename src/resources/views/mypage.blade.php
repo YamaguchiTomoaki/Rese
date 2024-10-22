@@ -40,9 +40,11 @@
                     </div>
                 </form>
                 <div class="advance-payment__button">
+                    @if ($reservationArray[$id]['payment_flag'] == 0)
                     <form action="{{ route('payment.store') }}" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="pay" value="{{ 3000 * $reservationArray[$id]['number'] }}">
+                        <input type="hidden" name="reservation_id" value="{{ $reservationArray[$id]['id'] }}">
                         <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key={{ config('stripte.stripe_public_key') }}
@@ -55,10 +57,13 @@
                             data-currency="JPY">
                         </script>
                     </form>
+                    @else
+                    <p class="pay-status">決済済み</p>
+                    @endif
                 </div>
                 <form class="qrcode-form" action="/qrcode" method="get">
                     <input type="hidden" name="reservation_id" value="{{ $reservationArray[$id]['id'] }}">
-                    <input type="image" name="submit" src="{{asset('storage/qrcode.png')}}" width="30" height="30" alt="QRコード表示">
+                    <input type="image" name="submit" src="{{asset('storage/qrcode.jpg')}}" width="30" height="30" alt="QRコード表示">
                 </form>
                 <form class="reservation-form" action="/cancel" method="post">
                     @csrf
@@ -81,12 +86,21 @@
                         {{ $reservationArray[$id]['date']}}
                     </td>
                 </tr>
+                @if ( substr($reservationArray[$id]['time'], 0, 1) != 0)
                 <tr class="table__row">
                     <th class="table__ttl">Time</th>
                     <td class="table__item">
                         {{ substr($reservationArray[$id]['time'], 0, 5) }}
                     </td>
                 </tr>
+                @else
+                <tr class="table__row">
+                    <th class="table__ttl">Time</th>
+                    <td class="table__item">
+                        {{ substr($reservationArray[$id]['time'], 1, 4) }}
+                    </td>
+                </tr>
+                @endif
                 <tr class="table__row">
                     <th class="table__ttl">Number</th>
                     <td class="table__item">

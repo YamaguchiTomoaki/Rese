@@ -39,6 +39,11 @@ class Shop extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function representative()
+    {
+        return $this->hasOne(Representative::class);
+    }
+
     public function scopeAreaSearch($query, $area)
     {
         if ($area != 'null') {

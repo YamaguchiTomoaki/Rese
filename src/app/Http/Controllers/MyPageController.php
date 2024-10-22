@@ -7,6 +7,8 @@ use App\Models\Favorite;
 use App\Models\Genre;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class MyPageController extends Controller
 {
@@ -19,10 +21,11 @@ class MyPageController extends Controller
         $areaCount = count($area);
         $genre = Genre::all();
         $genreCount = count($genre);
-
+        $date = Carbon::now()->format('Y-m-d');
         $reservation = Reservation::with('shop:id,name,areas,genres,overview,image_id')->where([
             ['user_id', '=', $user['id']],
-        ])->get();
+            ['date', '>=', $date],
+        ])->orderBy('date')->get();
         $reservationArray = $reservation->toArray();
         $reservationCount = count($reservationArray);
 
@@ -48,7 +51,6 @@ class MyPageController extends Controller
                 }
             }
         }
-
         return view('mypage', compact('reservationArray', 'reservationCount', 'favoriteArray', 'favoriteCount', 'user_id', 'user_name'));
     }
 }

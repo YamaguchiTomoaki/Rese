@@ -16,13 +16,13 @@
             </form>
         </div>
         <div class="shop__image">
-            <img src="{{ $shopArray['image_id'] }}" alt="" />
+            <img src="{{ asset('storage/' . $shopArray['image']) }}" alt="" />
         </div>
         <div class="shop__tag">
             <p class="shop__tag-area">#{{ $shopArray['area'] }}</p>
             <p class="shop__tag-genre">#{{ $shopArray['genre'] }}</p>
         </div>
-        <p class="shop__overview">{{ $shopArray['overview'] }}</p>
+        <p class="shop__overview">{!! nl2br(e($shopArray['overview'])) !!}</p>
     </div>
     <div class="reservation__content">
         <form class="reservation-form" action="/done" method="post">

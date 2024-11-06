@@ -41,7 +41,7 @@
     <div class="card__wrap">
         @for ($id = 0; $id < $shopCount; $id++) <div class="card">
             <div class="card__img">
-                <img src="{{ $shopArray[$id]['image_id'] }}" alt="" />
+                <img src="{{ asset('storage/' . $shopArray[$id]['image']) }}" alt="" />
             </div>
             <div class="card__content">
                 <div class="card__content-ttl">{{ $shopArray[$id]['name'] }}</div>

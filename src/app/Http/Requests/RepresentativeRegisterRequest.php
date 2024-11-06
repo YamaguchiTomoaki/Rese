@@ -27,7 +27,6 @@ class RepresentativeRegisterRequest extends FormRequest
             'name' => 'required | string | max:255',
             'email' => 'required | string | unique:representatives,email',
             'password' => 'required | string',
-            'shop_id' => 'required',
         ];
     }
 
@@ -41,7 +40,6 @@ class RepresentativeRegisterRequest extends FormRequest
             'email.string' => 'メールアドレスを文字列で入力してください',
             'password.required' => 'パスワードを入力してください',
             'password.string' => 'パスワードを文字列で入力してください',
-            'shop_id.required' => '店舗コードを入力してください',
         ];
     }
 }

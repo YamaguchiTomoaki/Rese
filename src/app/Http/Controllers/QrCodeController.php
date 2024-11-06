@@ -13,7 +13,7 @@ class QrCodeController extends Controller
         $reservation = Reservation::with('shop:id,name')->where([
             ['id', '=', $request->reservation_id],
         ])->get();
-        //$qrCode = QrCode::size(200)->generate($reservation);
+
         $reservation_id = $request->reservation_id;
         $qrCode = QrCode::size(200)->generate("http://localhost/qrcode/$reservation_id");
         return view('qrcode', compact('qrCode'));

@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('representative_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->foreignId('areas')->constrained()->cascadeOnDelete();
             $table->foreignId('genres')->constrained()->cascadeOnDelete();
             $table->text('overview');
-            $table->string('image_id');
+            $table->string('image');
             $table->timestamps();
         });
     }

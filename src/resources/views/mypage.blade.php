@@ -119,7 +119,7 @@
     <div class="card__wrap">
         @for ($id = 0; $id < $favoriteCount; $id++) <div class="card">
             <div class="card__img">
-                <img src="{{ $favoriteArray[$id]['shop']['image_id'] }}" alt="" />
+                <img src="{{ asset('storage/' . $favoriteArray[$id]['shop']['image']) }}" alt="" />
             </div>
             <div class="card__content">
                 <div class="card__content-ttl">{{ $favoriteArray[$id]['shop']['name'] }}</div>

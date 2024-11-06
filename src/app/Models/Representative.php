@@ -14,7 +14,6 @@ class Representative extends Authenticatable
     use HasFactory;
 
     protected $fillable = [
-        'shop_id',
         'name',
         'email',
         'password',
@@ -32,6 +31,6 @@ class Representative extends Authenticatable
 
     public function shop()
     {
-        return $this->belongsTo(Shop::class, 'shop_id');
+        return $this->hasMany(Shop::class);
     }
 }

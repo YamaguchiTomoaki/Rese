@@ -22,7 +22,8 @@
             <a class="nav__home" href="/">Home</a>
             @if (Auth::check())
             <a class="nav__logout" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form id="logout-form" action="{{ route('login.destroy') }}" method="post" style="display: none;">
+                @method('DELETE')
                 @csrf
             </form>
             <a class="nav__mypage" href="/mypage">Mypage</a>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ShopCreateRequest;
+use App\Http\Requests\ShopEditRequest;
 use App\Models\Area;
 use App\Models\Favorite;
 use App\Models\Genre;
@@ -10,13 +12,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
-
-//後で消す
-use App\Models\Reservation;
-use App\Models\User;
-use Illuminate\Console\Command;
-//後で消す
 
 class ShopController extends Controller
 {
@@ -121,25 +118,53 @@ class ShopController extends Controller
         return view('detail', compact('shopArray'));
     }
 
-    public function test()
+    public function create(ShopCreateRequest $request)
     {
-        $date = Carbon::now()->format('Y-m-d');
-        $reservations = Reservation::with('user')->where([
-            ['date', '=', $date],
-        ])->get();
-        $reservationsArray = $reservations->toArray();
-        dd($reservationsArray);
-        if ($reservations == 'null') {
-            $test = 1;
-            dd($test);
-            $reservationsCount = count($reservations);
-            for ($id = 0; $id < $reservationsCount; $id++) {
-                $users[$id] = $reservations[$id]['user'];
-                $reservation = $reservations[$id];
-            }
-        } else {
-            $test = 0;
-            dd($test);
+        $file_name = $request->file('image')->getClientOriginalName();
+        if (! Storage::exists('public/' . $file_name)) {
+            $request->file('image')->storeAs('public', $file_name);
         }
+        $shop = [
+            'representative_id' => $request->representative_id,
+            'name' => $request->name,
+            'areas' => $request->areas,
+            'genres' => $request->genres,
+            'overview' => $request->overview,
+            'image' => $file_name,
+        ];
+        Shop::create($shop);
+
+        return redirect('/representative');
+    }
+
+    public function update(ShopEditRequest $request)
+    {
+        if ($request->image == null) {
+            $shop = [
+                'name' => $request->name,
+                'areas' => $request->areas,
+                'genres' => $request->genres,
+                'overview' => $request->overview,
+            ];
+        } else {
+            $file_name = $request->file('image')->getClientOriginalName();
+            if (! Storage::exists('public/' . $file_name)) {
+                $request->file('image')->storeAs('public', $file_name);
+            }
+
+            $shop = [
+                'name' => $request->name,
+                'areas' => $request->areas,
+                'genres' => $request->genres,
+                'overview' => $request->overview,
+                'image' => $file_name,
+            ];
+        }
+
+        Shop::where([
+            ['id', '=', $request->shop_id],
+        ])->update($shop);
+
+        return redirect('/representative');
     }
 }

@@ -36,25 +36,6 @@
                 @enderror
             </p>
         </div>
-        <div class="admin-form__group">
-            <div class="search-form__group-shop">
-                <div class="select__pointer">
-                    <select name="shop_id">
-                        <option value="">店舗名</option>
-                        @foreach ($shops as $shop)
-                        <option value="{{ $shop['id'] }}" @if( request('shop')==$shop['id'] ) selected @endif>{{ $shop['name'] }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="error-message__group">
-            <p class="admin-form__error-message">
-                @error('shop_id')
-                {{ $message }}
-                @enderror
-            </p>
-        </div>
         <div class="admin-form__group__button">
             <button class="admin-form__button" type="submit">
                 作成

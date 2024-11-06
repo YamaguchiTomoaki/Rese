@@ -41,7 +41,7 @@ class Shop extends Model
 
     public function representative()
     {
-        return $this->hasOne(Representative::class);
+        return $this->belongsTo(Representative::class, 'representative_id');
     }
 
     public function scopeAreaSearch($query, $area)

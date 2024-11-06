@@ -22,14 +22,14 @@ class MyPageController extends Controller
         $genre = Genre::all();
         $genreCount = count($genre);
         $date = Carbon::now()->format('Y-m-d');
-        $reservation = Reservation::with('shop:id,name,areas,genres,overview,image_id')->where([
+        $reservation = Reservation::with('shop:id,name,areas,genres,overview,image')->where([
             ['user_id', '=', $user['id']],
             ['date', '>=', $date],
-        ])->orderBy('date')->get();
+        ])->orderBy('date', 'asc')->orderBy('time', 'asc')->get();
         $reservationArray = $reservation->toArray();
         $reservationCount = count($reservationArray);
 
-        $favorite = Favorite::with('shop:id,name,areas,genres,overview,image_id')->where([
+        $favorite = Favorite::with('shop:id,name,areas,genres,overview,image')->where([
             ['user_id', '=', $user['id']],
         ])->get();
         $favoriteArray = $favorite->toArray();

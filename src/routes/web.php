@@ -74,21 +74,30 @@ Route::middleware('auth:web', 'verified')->group(function () {
     Route::get('/payment', [PaymentController::class, 'payView']);
     Route::post('payment/store', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/qrcode', [QrCodeController::class, 'qrView']);
+    Route::delete('/logout', [OriginalLoginController::class, 'destroy'])->name('login.destroy');
 });
 
 Route::get('/admin/login', [AdminLoginController::class, 'view'])->name('admin.login');;
 Route::post('/admin/login', [AdminLoginController::class, 'store'])->name('admin.login.store');
-Route::delete('/admin/logout', [AdminLoginController::class, 'destroy'])->name('admin.login.destroy');
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', [AdminLoginController::class, 'index'])->name('admin');
     Route::post('/admin/representative', [RepresentativeController::class, 'create']);
+    Route::delete('/admin/logout', [AdminLoginController::class, 'destroy'])->name('admin.login.destroy');
 });
 
 Route::get('/representative/login', [RepresentativeController::class, 'view'])->name('representative.login');;
 Route::post('/representative/login', [RepresentativeController::class, 'store'])->name('representative.login.store');
-Route::delete('/representative/logout', [RepresentativeController::class, 'destroy'])->name('representative.login.destroy');
 
 Route::middleware('auth:representative')->group(function () {
     Route::get('/representative', [RepresentativeController::class, 'index'])->name('representative');
+    Route::delete('/representative/logout', [RepresentativeController::class, 'destroy'])->name('representative.login.destroy');
+    Route::get('/representative/create', [RepresentativeController::class, 'createView']);
+    Route::get('representative/edit', [RepresentativeController::class, 'editList']);
+    Route::get('/representative/reservation', [RepresentativeController::class, 'reservationView']);
+    Route::post('/representative/create/create', [ShopController::class, 'create']);
+    Route::get('/representative/edit/{shop_id}', [RepresentativeController::class, 'edit'])->name('representative.edit');
+    Route::post('/representative/edit/update', [ShopController::class, 'update']);
+    Route::get('/representative/reservation', [RepresentativeController::class, 'reservationList']);
+    Route::get('/representative/reservation/{shop_id}', [RepresentativeController::class, 'reservationView'])->name('representative.reservationView');
 });

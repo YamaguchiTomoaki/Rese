@@ -75,12 +75,6 @@ return [
     */
 
     'home' => RouteServiceProvider::HOME,
-    /* 'test'を作成
-    redirectsregister
-            register後のリダイレクト先変更ようにテスト的に作成
-    　リダイレクト先を分けることができたがこのやり方であっているのか不明 */
-    /*'register' => '/thanks',*/
-    'thanks' => '/thanks',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +155,10 @@ return [
             'confirmPassword' => true,
             // 'window' => 0,
         ]),
+    ],
+
+    'redirects' => [
+        'register' => config('app.url') . '/thanks'
     ],
 
 ];

@@ -113,6 +113,7 @@ class RepresentativeController extends Controller
         ])->with('user:id,name,email')->orderBy('date', 'asc')->orderBy('time', 'asc')->get();
         if ($reservation == '[]') {
             $reservation = 'null';
+            $reservationCount = 'null';
         } else {
             $reservationCount = count($reservation);
             for ($id = 0; $id < $reservationCount; $id++) {
@@ -127,6 +128,12 @@ class RepresentativeController extends Controller
                     $reservation[$id]['payment_flag'] = '決済済み';
                 } else {
                     $reservation[$id]['payment_flag'] = '未決済';
+                }
+                $headstr = substr($reservation[$id]['time'], 0, 1);
+                if ($headstr != "0") {
+                    $reservation[$id]['time'] = substr($reservation[$id]['time'], 0, 5);
+                } else {
+                    $reservation[$id]['time'] = substr($reservation[$id]['time'], 1, 4);
                 }
             }
         }

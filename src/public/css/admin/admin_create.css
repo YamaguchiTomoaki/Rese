@@ -1,15 +1,15 @@
-.login-form__content {
+.create__content {
     width: 25%;
     margin: 200px auto;
 }
 
 @media screen and (max-width: 768px) {
-    .login-form__content {
+    .create__content {
         width: 60%;
     }
 }
 
-.login-form__ttl {
+.admin-form__ttl {
     background-color: #305DFF;
     border: 1px solid #305DFF;
     border-radius: 4px 4px 0 0;
@@ -21,12 +21,54 @@
     padding-left: 20px;
 }
 
-.login-form__inner {
+.back__btn {
+    height: 30px;
+    background-color: #305DFF;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ttl__text {
+    color: #fff;
+    font-size: 24px;
+    margin-left: 30px;
+}
+
+.admin-form__inner {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 0 0 4px 4px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
     padding: 0 20px 20px 20px;
+}
+
+.profile-solid.icon {
+    color: #000;
+    position: absolute;
+    margin-left: 3px;
+    margin-top: 11px;
+    width: 14px;
+    height: 6px;
+    border-left: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    border-top: solid 1px currentColor;
+    border-bottom: solid 1px transparent;
+    background-color: currentColor;
+    border-radius: 6px 6px 0 0;
+}
+
+.profile-solid.icon:before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: solid 1px currentColor;
+    background-color: currentColor;
 }
 
 .mail-solid.icon {
@@ -96,14 +138,14 @@
     border-right: solid 1px currentColor;
 }
 
-.login-form__group {
+.admin-form__group {
     width: 100%;
     margin-top: 20px;
     display: flex;
     align-items: center;
 }
 
-.login-form__input {
+.admin-form__input {
     width: 90%;
     border: none;
     border-bottom: 1px solid #000;
@@ -111,16 +153,16 @@
     margin-left: 30px;
 }
 
-.login-form__group--button {
+.admin-form__group--button {
     text-align: right;
 }
 
-.login-form__button {
+.admin-form__button {
     background-color: #305DFF;
     color: #fff;
     border: 1px solid #305DFF;
     border-radius: 4px;
-    width: 80px;
+    width: 50px;
     height: 30px;
     cursor: pointer;
     margin-top: 15px;

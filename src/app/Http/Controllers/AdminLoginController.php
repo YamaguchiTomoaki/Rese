@@ -44,7 +44,11 @@ class AdminLoginController extends Controller
 
     public function index()
     {
-        $shops = Shop::all();
-        return view('admin.admin_index', compact('shops'));
+        return view('admin.admin_index');
+    }
+
+    public function create()
+    {
+        return view('admin.admin_create');
     }
 }

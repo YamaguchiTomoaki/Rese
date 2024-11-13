@@ -1,0 +1,77 @@
+.email__content {
+    background-color: #305DFF;
+    padding: 20px 20px 20px 90px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    margin: 100px auto 0;
+}
+
+@media screen and (max-width: 768px) {
+    .email__content {
+        padding: 20px 20px 20px 70px;
+        width: 90%;
+    }
+}
+
+.back__btn {
+    height: 30px;
+    background-color: #305DFF;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.email__back {
+    margin-bottom: 30px;
+}
+
+.email__subject {
+    margin-bottom: 30px;
+}
+
+.email__subject input {
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+    outline: none;
+}
+
+.email__maintext textarea {
+    width: 90%;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+    outline: none;
+    resize: none;
+    height: 300px;
+}
+
+.email__button {
+    text-align: center;
+}
+
+.email__submit {
+    color: #fff;
+    font-size: 16px;
+    background-color: #0538FF;
+    border: 1px solid #0538FF;
+    border-radius: 0 0 4px 4px;
+    width: 50%;
+    padding: 20px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .email__submit {
+        width: 90%;
+    }
+}
+
+.email-form__error-message {
+    color: #fff;
+}

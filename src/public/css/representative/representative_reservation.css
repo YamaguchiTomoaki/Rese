@@ -1,0 +1,129 @@
+.reservation__content {
+    width: 80%;
+    margin: 200px auto;
+    background-color: #305DFF;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+    .reservation__content {
+        width: 100%;
+        margin: 100px auto;
+        padding: 20px;
+    }
+}
+
+.reservation__title {
+    display: flex;
+    align-items: center;
+}
+
+.back__btn {
+    height: 30px;
+    background-color: #305DFF;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reservation__shop {
+    margin-left: 30px;
+    color: #fff;
+}
+
+.reservationlist-table {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.reservationlist-table__row {
+    border: 1px solid #fff;
+    height: 50px;
+    text-align: center;
+}
+
+.reservationlist-table__title {
+    border-right: 1px solid #fff;
+    width: 10%;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .reservationlist-table__title {
+        font-size: 14px;
+    }
+}
+
+.reservationlist-table__item--date {
+    border: 1px solid #fff;
+    font-size: 16px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .reservationlist-table__item--date {
+        font-size: 14px;
+    }
+}
+
+.reservationlist-table__item--time {
+    border: 1px solid #fff;
+    font-size: 16px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .reservationlist-table__item--time {
+        font-size: 14px;
+    }
+}
+
+.reservationlist-table__item--name {
+    border: 1px solid #fff;
+    font-size: 16px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .reservationlist-table__item--name {
+        font-size: 14px;
+    }
+}
+
+.reservationlist-table__item--number {
+    border: 1px solid #fff;
+    font-size: 16px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .reservationlist-table__item--number {
+        font-size: 14px;
+    }
+}
+
+.reservationlist-table__item--visit {
+    border: 1px solid #fff;
+    font-size: 16px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .reservationlist-table__item--visit {
+        font-size: 14px;
+    }
+}
+
+.reservationlist-table__item--payment {
+    font-size: 16px;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .reservationlist-table__item--payment {
+        font-size: 14px;
+    }
+}

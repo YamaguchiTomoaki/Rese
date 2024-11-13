@@ -1,5 +1,3 @@
-.search-form {}
-
 .search-form__item {
     display: flex;
 }
@@ -7,6 +5,12 @@
 .search-form__item-area {
     width: 120px;
     position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .search-form__item-area {
+        width: 100px;
+    }
 }
 
 
@@ -21,6 +25,16 @@
     clip-path: polygon(0 0, 50% 30%, 100% 0, 50% 100%);
 }
 
+@media screen and (max-width: 768px) {
+    .select__pointer::before {
+        top: 40%;
+        right: 5%;
+        height: 8px;
+        width: 14px;
+        clip-path: polygon(0 0, 50% 30%, 100% 0, 50% 100%);
+    }
+}
+
 .search-form__item-area select {
     appearance: none;
     width: 100%;
@@ -33,9 +47,21 @@
     border-radius: 4px;
 }
 
+@media screen and (max-width: 768px) {
+    .search-form__item-area select {
+        padding-left: 7px;
+    }
+}
+
 .search-form__item-genre {
     width: 120px;
     position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .search-form__item-genre {
+        width: 100px;
+    }
 }
 
 .search-form__item-genre select {
@@ -50,6 +76,12 @@
     border-radius: 4px;
 }
 
+@media screen and (max-width: 768px) {
+    .search-form__item-genre select {
+        padding-left: 7.5px;
+    }
+}
+
 .search-form__item-name {
     width: 300px;
     height: 50px;
@@ -57,6 +89,11 @@
     display: inline-block;
 }
 
+@media screen and (max-width: 768px) {
+    .search-form__item-name {
+        width: 150px;
+    }
+}
 
 /*虫眼鏡の丸部分*/
 .search-form__item-name span {
@@ -69,6 +106,15 @@
     border-radius: 50%;
     margin: -.28em 0 0 -.28em;
     border: 2px solid #ddd;
+}
+
+@media screen and (max-width: 768px) {
+    .search-form__item-name span {
+        top: 45%;
+        left: 4%;
+        width: 10%;
+        margin: -.28em 0 0 -.07em;
+    }
 }
 
 /*虫眼鏡の棒部分*/
@@ -85,6 +131,13 @@
     transform: rotate(45deg);
 }
 
+@media screen and (max-width: 768px) {
+    .search-form__item-name span::after {
+        width: 72%;
+        height: 25%;
+    }
+}
+
 .search-form__item-name input {
     appearance: none;
     width: 300px;
@@ -95,6 +148,13 @@
     outline: none;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .search-form__item-name input {
+        width: 200px;
+        padding-left: 30px;
+    }
 }
 
 .index__content {
@@ -111,6 +171,15 @@
     margin: 100px 20px 0 0;
     border-radius: 4px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 250px;
+        margin: 100px 20px 0 0;
+        border-radius: 4px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    }
 }
 
 .card__img img {

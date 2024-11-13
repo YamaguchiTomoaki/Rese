@@ -9,6 +9,7 @@ body {
     align-items: center;
     margin-top: 50px;
     justify-content: space-between;
+    height: 50px;
 }
 
 .header__left {

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.representative')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/representative/representative_reservation.css') }}" />
@@ -6,7 +6,10 @@
 
 @section('content')
 <div class="reservation__content">
-    <h2 class="reservation__shop">{{ $shop_id->name }}</h2>
+    <div class="reservation__title">
+        <button type="button" class="back__btn" onClick="history.back()">＜</button>
+        <h2 class="reservation__shop">{{ $shop_id->name }}</h2>
+    </div>
     <div class="reservation__list">
         @if ($reservation != 'null')
         <table class="reservationlist-table">
@@ -24,10 +27,10 @@
                     人数
                 </th>
                 <th class="reservationlist-table__title">
-                    来店ステータス
+                    来店状態
                 </th>
                 <th class="reservationlist-table__title">
-                    支払いステータス
+                    支払い状態
                 </th>
             </tr>
             @for ($id=0;$id < $reservationCount; $id++)

@@ -1,0 +1,118 @@
+.create__content {
+    background-color: #305DFF;
+    padding: 20px 20px 20px 90px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    margin: 100px auto 0;
+}
+
+@media screen and (max-width: 768px) {
+    .create__content {
+        padding: 20px 20px 20px 70px;
+        width: 90%;
+    }
+}
+
+.back__btn {
+    height: 30px;
+    background-color: #305DFF;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.create-form__group {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.create-form__group input {
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+    outline: none;
+}
+
+.select__pointer::before {
+    position: absolute;
+    content: "";
+    top: 30%;
+    right: 11%;
+    height: 12px;
+    width: 20px;
+    background: #ddd;
+    clip-path: polygon(0 0, 50% 30%, 100% 0, 50% 100%);
+}
+
+.create-form__group select {
+    appearance: none;
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+    outline: none;
+}
+
+.create-form__group textarea {
+    width: 90%;
+    height: 100px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+    outline: none;
+    resize: none;
+}
+
+.create-form__group__file {
+    margin-bottom: 30px;
+}
+
+.create-form__group__file input {
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    width: 90%;
+}
+
+::file-selector-button,
+::-webkit-file-upload-button {
+    background-color: #fff;
+    color: rgb(31, 41, 55);
+    border: none;
+    cursor: pointer;
+    border-right: 1px solid #fff;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+.create-form__group__button {
+    text-align: center;
+}
+
+.create-form__group__button button {
+    color: #fff;
+    font-size: 16px;
+    background-color: #0538FF;
+    border: 1px solid #0538FF;
+    border-radius: 0 0 4px 4px;
+    width: 50%;
+    padding: 20px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .create-form__group__button button {
+        width: 90%;
+    }
+}
+
+.create-form__error-message {
+    color: #fff;
+}

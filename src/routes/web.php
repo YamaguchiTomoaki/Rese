@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\AdminRegisterController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\NavigationController;
@@ -82,8 +83,11 @@ Route::post('/admin/login', [AdminLoginController::class, 'store'])->name('admin
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', [AdminLoginController::class, 'index'])->name('admin');
+    Route::get('/admin/representative', [AdminLoginController::class, 'create']);
     Route::post('/admin/representative', [RepresentativeController::class, 'create']);
     Route::delete('/admin/logout', [AdminLoginController::class, 'destroy'])->name('admin.login.destroy');
+    Route::get('/admin/email', [EmailController::class, 'emailView']);
+    Route::post('/admin/email', [EmailController::class, 'emailSend']);
 });
 
 Route::get('/representative/login', [RepresentativeController::class, 'view'])->name('representative.login');;

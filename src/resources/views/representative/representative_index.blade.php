@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.representative')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/representative/representative_index.css') }}" />
@@ -24,12 +24,13 @@
             <button class="reservation__button" type="submit">予約一覧</button>
         </form>
     </div>
+    <div class="representative__logout">
+        <form method="post" action="{{ route('representative.login.destroy') }}">
+            @method('DELETE')
+            @csrf
+            <button type="submit">ログアウト</button>
+        </form>
+    </div>
 </div>
-<div class="representative__logout">
-    <form method="post" action="{{ route('representative.login.destroy') }}">
-        @method('DELETE')
-        @csrf
-        <button type="submit">ログアウト</button>
-    </form>
-</div>
+
 @endsection

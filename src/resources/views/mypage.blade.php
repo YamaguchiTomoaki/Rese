@@ -5,14 +5,6 @@
 <link rel="stylesheet" href="./css/bootstrap.css">
 <script src="./js/jquery.js"></script>
 <script src="./js/bootstrap.js"></script>
-<style type="text/css">
-    button.stripe-button-el,
-    button.stripe-button-el>span {
-        background-color: #305DFF !important;
-        border: 1px solid #fff;
-        background-image: none;
-    }
-</style>
 @endsection
 
 @section('content')

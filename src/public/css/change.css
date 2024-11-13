@@ -7,6 +7,13 @@
     margin: 100px auto 0;
 }
 
+@media screen and (max-width: 768px) {
+    .change__content {
+        padding: 10px 30px 50px;
+        width: 90%;
+    }
+}
+
 .change__ttl {
     display: flex;
     align-items: center;
@@ -54,6 +61,7 @@
     border: none;
     border-radius: 4px;
     padding-left: 10px;
+    outline: none;
 }
 
 .change__time {
@@ -84,6 +92,7 @@
     border: none;
     border-radius: 4px;
     padding-left: 10px;
+    outline: none;
 }
 
 .change__number select {
@@ -93,6 +102,7 @@
     border: none;
     border-radius: 4px;
     padding-left: 10px;
+    outline: none;
 }
 
 .change-form__error-message {
@@ -113,6 +123,12 @@
     padding: 20px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .change__btn button {
+        width: 90%;
+    }
 }
 
 .reservation-form__error-message {

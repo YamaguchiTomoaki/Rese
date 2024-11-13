@@ -5,10 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Reservation;
 use Illuminate\Console\Command;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Batch;
-use App\Jobs\SendReminderEmail;
 use Illuminate\Contracts\Mail\Mailer;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\ReminderEmail;
 
 class ReservationDate extends Command

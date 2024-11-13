@@ -58,6 +58,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
+@media screen and (max-width: 768px) {
+    .nav__content {
+        width: 50%;
+    }
+}
+
 .nav__home {
     display: block;
     text-decoration: none;

@@ -3,6 +3,12 @@
     margin: 200px auto;
 }
 
+@media screen and (max-width: 768px) {
+    .register-form__content {
+        width: 60%;
+    }
+}
+
 .register-form__ttl {
     background-color: #305DFF;
     border: 1px solid #305DFF;

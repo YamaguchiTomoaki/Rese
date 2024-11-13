@@ -1,52 +1,23 @@
-<div>test</div>
-<div class="admin__content">
-    <form class="admin-form" action="/admin/representative" method="post">
-        @csrf
-        <div class="admin-form__group">
-            <div class="profile-solid icon"></div>
-            <input type="text" name="name" placeholder="Username" value="{{ old('name') }}">
-        </div>
-        <div class="error-message__group">
-            <p class="admin-form__error-message">
-                @error('name')
-                {{ $message }}
-                @enderror
-            </p>
-        </div>
-        <div class="admin-form__group">
-            <div class="mail-solid icon"></div>
-            <input type="text" name="email" placeholder="Email" value="{{ old('email') }}">
-        </div>
-        <div class="error-message__group">
-            <p class="admin-form__error-message">
-                @error('email')
-                {{ $message }}
-                @enderror
-            </p>
-        </div>
-        <div class="admin-form__group">
-            <div class="lock-solid icon"></div>
-            <input class="register-form__input" type="password" name="password" placeholder="Password">
+@extends('layouts.admin')
 
-        </div>
-        <div class="error-message__group">
-            <p class="admin-form__error-message">
-                @error('password')
-                {{ $message }}
-                @enderror
-            </p>
-        </div>
-        <div class="admin-form__group__button">
-            <button class="admin-form__button" type="submit">
-                作成
-            </button>
-        </div>
-    </form>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/admin/admin_index.css') }}" />
+@endsection
+
+@section('content')
+<div class="admin__content">
+    <div class="representative__create">
+        <a class="representative__link" href="/admin/representative">店舗責任者を作成</a>
+    </div>
+    <div class="notification__email">
+        <a class="email__link" href="/admin/email">お知らせメールを作成</a>
+    </div>
+    <div class="admin__logout">
+        <form method="post" action="{{ route('admin.login.destroy') }}">
+            @method('DELETE')
+            @csrf
+            <button type="submit">ログアウト</button>
+        </form>
+    </div>
 </div>
-<div class="admin__logout">
-    <form method="post" action="{{ route('admin.login.destroy') }}">
-        @method('DELETE')
-        @csrf
-        <button type="submit">ログアウト</button>
-    </form>
-</div>
+@endsection

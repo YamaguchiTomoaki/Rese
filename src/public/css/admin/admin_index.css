@@ -1,19 +1,21 @@
-.representative__content {
+.admin__content {
     width: 25%;
     margin: 200px auto;
 }
 
 @media screen and (max-width: 768px) {
-    .representative__content {
+    .admin__content {
         width: 50%;
     }
 }
 
-.shop__create {
+.representative__create {
     margin-bottom: 30px;
 }
 
-.create__button {
+.representative__link {
+    display: inline-block;
+    text-decoration: none;
     background: #305DFF;
     border: 1px solid #305DFF;
     border-radius: 4px;
@@ -26,11 +28,13 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.shop__edit {
+.notification__email {
     margin-bottom: 30px;
 }
 
-.edit__button {
+.email__link {
+    display: inline-block;
+    text-decoration: none;
     background: #305DFF;
     border: 1px solid #305DFF;
     border-radius: 4px;
@@ -43,24 +47,7 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.shop__reservation {
-    margin-bottom: 30px;
-}
-
-.reservation__button {
-    background: #305DFF;
-    border: 1px solid #305DFF;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    padding: 5px 15px;
-    font-size: 24px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-}
-
-.representative__logout button {
+.admin__logout button {
     background: #305DFF;
     border: 1px solid #305DFF;
     border-radius: 4px;

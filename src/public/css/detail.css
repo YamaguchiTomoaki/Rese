@@ -133,6 +133,7 @@
     border: none;
     border-radius: 4px;
     padding-left: 20px;
+    outline: none;
 }
 
 .reservation__number select {
@@ -142,6 +143,7 @@
     border: none;
     border-radius: 4px;
     padding-left: 10px;
+    outline: none;
 }
 
 .reservation-form__error-message {

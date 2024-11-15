@@ -24,9 +24,4 @@ class OriginalEmailVerificationPromptController extends Controller
 
         return app(VerifyEmailResponse::class);
     }
-
-    /*public function thanks()
-    {
-        return view('auth/thanks');
-    }*/
 }

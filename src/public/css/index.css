@@ -197,7 +197,6 @@
     font-size: 18px;
     font-weight: bold;
     display: inline-block;
-    /* 要素の文字数に応じて幅が変更されるためにinline-blockを指定 */
 }
 
 .card__content-tag {
@@ -208,12 +207,10 @@
 .card__content-tag-area {
     display: inline-block;
     margin: 0;
-    /* 横並びにするためにinline-blockを指定 */
 }
 
 .card__content-tag-genre {
     display: inline-block;
-    /* 横並びにするためにinline-blockを指定 */
     margin: 0;
 }
 

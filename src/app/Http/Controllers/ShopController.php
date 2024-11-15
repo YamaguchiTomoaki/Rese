@@ -24,7 +24,6 @@ class ShopController extends Controller
         $genres = Genre::all();
 
         if ($user != null) {
-            //shop_idで順で取得　※必要あれば修正
             $favorite = Favorite::where([
                 ['user_id', '=', $user['id']],
             ])->orderBy('shop_id')->get();
@@ -70,7 +69,6 @@ class ShopController extends Controller
         $shop = Shop::with('area', 'genre')->AreaSearch($request->area)->GenreSearch($request->genre)->ShopSearch($request->name)->get();
 
         if ($user != null) {
-            //shop_idで順で取得　※必要あれば修正
             $favorite = Favorite::where([
                 ['user_id', '=', $user['id']],
             ])->orderBy('shop_id')->get();

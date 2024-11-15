@@ -40,6 +40,8 @@ Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/nav', [NavigationController::class, 'nav']);
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('shop.detail');
+
+Route::get('/qrcode', [QrCodeController::class, 'qrView']);
 Route::get('/qrcode/{reservation_id}', [QrCodeController::class, 'visit']);
 
 Route::get('/thanks', function () {
@@ -74,7 +76,6 @@ Route::middleware('auth:web', 'verified')->group(function () {
     Route::post('/review/post', [ReviewController::class, 'create']);
     Route::get('/payment', [PaymentController::class, 'payView']);
     Route::post('payment/store', [PaymentController::class, 'store'])->name('payment.store');
-    Route::get('/qrcode', [QrCodeController::class, 'qrView']);
     Route::delete('/logout', [OriginalLoginController::class, 'destroy'])->name('login.destroy');
 });
 

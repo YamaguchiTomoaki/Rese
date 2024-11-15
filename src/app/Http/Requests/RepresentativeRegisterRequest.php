@@ -26,7 +26,7 @@ class RepresentativeRegisterRequest extends FormRequest
         return [
             'name' => 'required | string | max:255',
             'email' => 'required | string | unique:representatives,email',
-            'password' => 'required | string',
+            'password' => 'required | string | max:255',
         ];
     }
 
@@ -40,6 +40,7 @@ class RepresentativeRegisterRequest extends FormRequest
             'email.string' => 'メールアドレスを文字列で入力してください',
             'password.required' => 'パスワードを入力してください',
             'password.string' => 'パスワードを文字列で入力してください',
+            'password.max' => 'パスワードを255文字以内で入力してください',
         ];
     }
 }

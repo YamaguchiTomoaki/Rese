@@ -98,7 +98,6 @@ Route::middleware('auth:representative')->group(function () {
     Route::delete('/representative/logout', [RepresentativeController::class, 'destroy'])->name('representative.login.destroy');
     Route::get('/representative/create', [RepresentativeController::class, 'createView']);
     Route::get('representative/edit', [RepresentativeController::class, 'editList']);
-    Route::get('/representative/reservation', [RepresentativeController::class, 'reservationView']);
     Route::post('/representative/create/create', [ShopController::class, 'create']);
     Route::get('/representative/edit/{shop_id}', [RepresentativeController::class, 'edit'])->name('representative.edit');
     Route::post('/representative/edit/update', [ShopController::class, 'update']);

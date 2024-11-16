@@ -183,7 +183,7 @@ QRコードを読み込むことで来店済みフラグが変化します。
 
 
 ## ER図
-![スクリーンショット 2024-11-16 143835](https://github.com/user-attachments/assets/f02729bd-46cc-4241-9c09-80dfe4e9f612)
+![スクリーンショット 2024-11-16 144226](https://github.com/user-attachments/assets/aadd1f7f-ff3b-42d8-a333-17f1fe48fe4b)
 
 ## URL
 * 開発環境：http://localhost/

@@ -149,7 +149,7 @@ QRコードを読み込むことで来店済みフラグが変化します。
 　※上記を全て実行してもサイトにアクセスできない場合  
 　　storageディレクトリの書き込み権限を変更  
     
-    sudo chmod -R 777 storage/
+    sudo chmod -R 777 src/storage/
 
 ## 作成済みのユーザー
 

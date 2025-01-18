@@ -7,6 +7,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\NewReviewController;
 use App\Http\Controllers\OriginalEmailVerificationPromptController;
 use App\Http\Controllers\OriginalLoginController;
 use App\Http\Controllers\OriginalRegisterController;
@@ -76,6 +77,9 @@ Route::middleware('auth:web', 'verified')->group(function () {
     Route::post('payment/store', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/qrcode', [QrCodeController::class, 'qrView']);
     Route::delete('/logout', [OriginalLoginController::class, 'destroy'])->name('login.destroy');
+    Route::get('/newreview', [NewReviewController::class, 'newReview']);
+    Route::post('/newreview', [NewReviewController::class, 'create']);
+    Route::get('/newreview/list', [NewReviewController::class, 'list']);
 });
 
 Route::get('/admin/login', [AdminLoginController::class, 'view'])->name('admin.login');;

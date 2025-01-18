@@ -23,6 +23,47 @@
             <p class="shop__tag-genre">#{{ $shopArray['genre'] }}</p>
         </div>
         <p class="shop__overview">{!! nl2br(e($shopArray['overview'])) !!}</p>
+        <div class="reviewlist__content">
+            <form class="list-form" action="/newreview/list">
+                <button type="submit">全ての口コミ情報</button>
+            </form>
+        </div>
+        @if($newreview_status != 1)
+        <div class="newreview__content">
+            <form class="newreview-form" action="/newreview" method="get">
+                <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
+                <button class="newreview__btn" type="submit">口コミを投稿する</button>
+            </form>
+        </div>
+        @else
+        <div class="result__content">
+            <div class="result__head">
+                <form class="edit-form" action="/newreview/edit" method="get">
+                    <input type="hidden" name="newreview_id" value="{{ $newreview[0]['id'] }}">
+                    <button type="submit" class="edit__button">口コミを編集</button>
+                </form>
+                <form class="delete-form" action="/newreview/delete" method="post">
+                    <input type="hidden" name="newreview_id" value="{{ $newreview[0]['id'] }}">
+                    <button type="submit" class="edit__button">口コミを削除</button>
+                </form>
+            </div>
+            <div class="star__button">
+                <input id="star5" type="radio" name="evaluation" value="5" {{$newreview[0]['evaluation'] == '5' ? 'checked' : ''}} disabled>
+                <label for="star5">★</label>
+                <input id="star4" type="radio" name="evaluation" value="4" {{$newreview[0]['evaluation'] == '4' ? 'checked' : ''}} disabled>
+                <label for="star4">★</label>
+                <input id="star3" type="radio" name="evaluation" value="3" {{$newreview[0]['evaluation'] == '3' ? 'checked' : ''}} disabled>
+                <label for="star3">★</label>
+                <input id="star2" type="radio" name="evaluation" value="2" {{$newreview[0]['evaluation'] == '2' ? 'checked' : ''}} disabled>
+                <label for="star2">★</label>
+                <input id="star1" type="radio" name="evaluation" value="1" {{$newreview[0]['evaluation'] == '1' ? 'checked' : ''}} disabled>
+                <label for="star1">★</label>
+            </div>
+            <div class="comment__content">
+                <p>{!! nl2br(e($newreview[0]['comment'])) !!}</p>
+            </div>
+        </div>
+        @endif
     </div>
     <div class="reservation__content">
         <form class="reservation-form" action="/done" method="post">
@@ -124,8 +165,6 @@
                             }
                             const data = dateFormat(today, 'YYYY-MM-DD');
                             const field = document.getElementById('date');
-                            /*初期値設定があるとバリデーションエラー時のoldメソッドが効かなくなる為、なくてもいいかも */
-                            //field.value = data;
                             field.setAttribute("min", data);
 
                             window.onload = function() {

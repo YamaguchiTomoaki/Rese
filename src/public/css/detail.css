@@ -39,6 +39,7 @@
 
 .shop__image img {
     width: 100%;
+    height: 300px;
     border-radius: 4px 4px 0 0;
 }
 
@@ -66,6 +67,54 @@
 .shop__overview {
     font-size: 16px;
     width: 100%;
+}
+
+.reviewlist__content {
+    width: 100%;
+}
+
+.reviewlist__content button {
+    background: #305DFF;
+    border: 1px solid #305DFF;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    height: 50px;
+}
+
+.result__content {
+    margin-top: 20px;
+    border-top: 3px solid #bbb;
+    border-bottom: 3px solid #bbb;
+}
+
+.result__head {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.star__button {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.star__button input[type=radio] {
+    display: none;
+}
+
+.star__button label {
+    position: relative;
+    padding: 0 5px;
+    color: #ccc;
+    font-size: 50px;
+}
+
+.star__button input[type=radio]:checked~label {
+    color: #305DFF;
 }
 
 @media screen and (max-width: 768px) {

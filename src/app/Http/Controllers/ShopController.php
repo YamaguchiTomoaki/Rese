@@ -7,6 +7,7 @@ use App\Http\Requests\ShopEditRequest;
 use App\Models\Area;
 use App\Models\Favorite;
 use App\Models\Genre;
+use App\Models\Newreview;
 use App\Models\Shop;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -113,7 +114,24 @@ class ShopController extends Controller
 
         $shopArray['area'] = $area['area'];
         $shopArray['genre'] = $genre['genre'];
-        return view('detail', compact('shopArray'));
+
+        $user = Auth::user();
+        if ($user != null) {
+            $newreview = Newreview::where([
+                ['user_id', '=', $user['id']],
+                ['shop_id', '=', $shopArray['id']],
+            ])->with('user', 'shop')->get();
+            if ($newreview != "[]") {
+                $newreview_status = 1;
+            } else {
+                $newreview_status = 0;
+            }
+        } else {
+            $newreview = null;
+            $newreview_status = 0;
+        }
+
+        return view('detail', compact('shopArray', 'newreview', 'newreview_status'));
     }
 
     public function create(ShopCreateRequest $request)

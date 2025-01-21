@@ -43,8 +43,10 @@
                     <button type="submit" class="edit__button">口コミを編集</button>
                 </form>
                 <form class="delete-form" action="/newreview/delete" method="post">
+                    @csrf
                     <input type="hidden" name="newreview_id" value="{{ $newreview[0]['id'] }}">
-                    <button type="submit" class="edit__button">口コミを削除</button>
+                    <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
+                    <button type="submit" class="delete__button">口コミを削除</button>
                 </form>
             </div>
             <div class="star__button">

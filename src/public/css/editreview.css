@@ -1,0 +1,238 @@
+.editreview__content {
+    display: flex;
+    width: 100%;
+}
+
+.shop__contet {
+    width: 45%;
+    border-right: 3px solid #bbb;
+}
+
+.shop__ttl {
+    width: 70%;
+    margin: 100px auto;
+}
+
+.ttl__text {
+    font-size: 50px;
+    margin: 0;
+}
+
+.card {
+    width: 360px;
+    margin: auto;
+    border-radius: 4px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 250px;
+        margin: 100px 20px 0 0;
+        border-radius: 4px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.card__img img {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
+
+.card__content {
+    padding: 15px 25px;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+}
+
+.card__content-ttl {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.card__content-tag {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.card__content-tag-area {
+    display: inline-block;
+    margin: 0;
+}
+
+.card__content-tag-genre {
+    display: inline-block;
+    margin: 0;
+}
+
+.card__content-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+}
+
+.card__content-btn-detail {
+    text-decoration: none;
+    background: #305DFF;
+    border: 1px solid #305DFF;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 16px;
+}
+
+.card__content-btn-favorite--off {
+    border: none;
+    font-size: 50px;
+    color: #ff0000;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.card__content-btn-favorite--on {
+    border: none;
+    font-size: 50px;
+    color: #ddd;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.review__content {
+    width: 55%;
+}
+
+.editreview-form {
+    width: 80%;
+    margin: auto;
+}
+
+.evaluation__ttl--text {
+    font-size: 30px;
+    margin: 0;
+}
+
+.star__button {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.star__button input[type=radio] {
+    display: none;
+}
+
+.star__button label {
+    position: relative;
+    padding: 0 5px;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.star__button label:hover {
+    color: #305DFF;
+}
+
+.star__button label:hover~label {
+    color: #305DFF;
+}
+
+.star__button input[type=radio]:checked~label {
+    color: #305DFF;
+}
+
+.comment__ttl--text {
+    font-size: 30px;
+    margin: 0;
+}
+
+.comment__text {
+    width: 100%;
+}
+
+.comment {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.count__content {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.count__content p {
+    margin: 0;
+}
+
+.image__ttl--text {
+    font-size: 30px;
+    margin: 0;
+}
+
+.image__image {
+    width: 100%;
+    min-height: 150px;
+    margin: 20px auto;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.image__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.first__line {
+    text-align: center;
+    font-size: 18px;
+}
+
+.second__line {
+    text-align: center;
+    font-size: 14px;
+}
+
+.image__image img {
+    /* preview-box内に画像を収める */
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.review__button {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.review__button button {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    background-color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.editreview-form__error-message {
+    color: #f00;
+    margin: 0;
+    font-size: 18px;
+}

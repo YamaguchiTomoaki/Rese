@@ -80,6 +80,9 @@ Route::middleware('auth:web', 'verified')->group(function () {
     Route::get('/newreview', [NewReviewController::class, 'newReview']);
     Route::post('/newreview', [NewReviewController::class, 'create']);
     Route::get('/newreview/list', [NewReviewController::class, 'list']);
+    Route::get('/newreview/edit', [NewReviewController::class, 'edit']);
+    Route::post('/newreview/edit', [NewReviewController::class, 'update']);
+    Route::post('/newreview/delete', [NewReviewController::class, 'delete']);
 });
 
 Route::get('/admin/login', [AdminLoginController::class, 'view'])->name('admin.login');;

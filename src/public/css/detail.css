@@ -89,10 +89,32 @@
     border-bottom: 3px solid #bbb;
 }
 
+.newreview__btn {
+    border: none;
+    border-bottom: 1px solid #000;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
 .result__head {
     display: flex;
     width: 100%;
     justify-content: end;
+}
+
+.edit__button {
+    border: none;
+    border-bottom: 1px solid #000;
+    margin-top: 10px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.delete__button {
+    border: none;
+    border-bottom: 1px solid #000;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 .star__button {

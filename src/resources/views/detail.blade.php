@@ -25,6 +25,7 @@
         <p class="shop__overview">{!! nl2br(e($shopArray['overview'])) !!}</p>
         <div class="reviewlist__content">
             <form class="list-form" action="/newreview/list">
+                <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
                 <button type="submit">全ての口コミ情報</button>
             </form>
         </div>

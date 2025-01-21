@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/reviewlist.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/admin/adminreview.css') }}" />
 @endsection
 
 @section('content')
@@ -25,6 +25,12 @@
             <div class="result__content">
             <div class="review__user">
                 <p class="user__text">{{ $newreviews[$id]['user']['name'] }}</p>
+                <form class="delete-form" action="/admin/newreview/delete" method="post">
+                    @csrf
+                    <input type="hidden" name="newreview_id" value="{{ $newreviews[$id]['id'] }}">
+                    <input type="hidden" name="shop_id" value="{{ $shopArray[0]['id'] }}">
+                    <button type="submit" class="delete__button">口コミを削除</button>
+                </form>
             </div>
             <div class="review__image">
                 <img class="image__image" src="{{ asset('storage/' . $newreviews[$id]['image']) }}" alt="">

@@ -47,6 +47,25 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
+.newreview__content {
+    margin-bottom: 30px;
+}
+
+.newreview__link {
+    display: inline-block;
+    text-decoration: none;
+    background: #305DFF;
+    border: 1px solid #305DFF;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 24px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
 .admin__logout button {
     background: #305DFF;
     border: 1px solid #305DFF;

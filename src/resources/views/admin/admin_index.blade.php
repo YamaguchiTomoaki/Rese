@@ -12,6 +12,9 @@
     <div class="notification__email">
         <a class="email__link" href="/admin/email">お知らせメールを作成</a>
     </div>
+    <div class="newreview__content">
+        <a class="newreview__link" href="/admin/newreview">口コミの削除</a>
+    </div>
     <div class="admin__logout">
         <form method="post" action="{{ route('admin.login.destroy') }}">
             @method('DELETE')

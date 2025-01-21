@@ -66,9 +66,18 @@ class NewReviewController extends Controller
         ]));
     }
 
-    public function list()
+    public function list(Request $request)
     {
-        return view('reviewlist');
+        $shopArray = Shop::where([
+            ['id', '=', $request->shop_id],
+        ])->with('area', 'genre')->get();
+
+        $newreviews = Newreview::where([
+            ['shop_id', '=', $request->shop_id],
+        ])->with('user', 'shop')->get();
+        $newreviewsCount = count($newreviews);
+
+        return view('reviewlist', compact('shopArray', 'newreviews', 'newreviewsCount'));
     }
 
     public function edit(Request $request)
@@ -128,6 +137,39 @@ class NewReviewController extends Controller
         ])->delete();
 
         return redirect(route('shop.detail', [
+            'shop_id' => $request->shop_id,
+        ]));
+    }
+
+    public function  newreviewList(Request $request)
+    {
+        $shop = Shop::with('area', 'genre')->get();
+        $shopCount = count($shop);
+
+        return view('admin.admin_reviewlist', compact('shop', 'shopCount'));
+    }
+
+    public function adminreview(Shop $shop_id)
+    {
+        $shopArray = Shop::where([
+            ['id', '=', $shop_id->id],
+        ])->with('area', 'genre')->get();
+
+        $newreviews = Newreview::where([
+            ['shop_id', '=', $shop_id->id],
+        ])->with('user', 'shop')->get();
+        $newreviewsCount = count($newreviews);
+
+        return view('admin.adminreview', compact('shopArray', 'newreviews', 'newreviewsCount'));
+    }
+
+    public function adminDelete(Request $request)
+    {
+        Newreview::where([
+            ['id', '=', $request->newreview_id],
+        ])->delete();
+
+        return redirect(route('admin.newreview', [
             'shop_id' => $request->shop_id,
         ]));
     }

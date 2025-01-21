@@ -1,0 +1,39 @@
+.newreview-list__content {
+    width: 25%;
+    margin: 50px auto;
+}
+
+@media screen and (max-width: 768px) {
+    .edit-list__content {
+        width: 50%;
+    }
+}
+
+.back__btn {
+    height: 30px;
+    background-color: #305DFF;
+    color: #fff;
+    border: 3px solid #305DFF;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.delete__button {
+    margin-bottom: 30px;
+}
+
+.delete__link {
+    display: inline-block;
+    text-decoration: none;
+    background: #305DFF;
+    border: 1px solid #305DFF;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 24px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}

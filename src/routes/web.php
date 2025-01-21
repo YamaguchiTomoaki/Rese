@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminLoginController;
-use App\Http\Controllers\AdminRegisterController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MyPageController;
@@ -18,6 +16,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
 use App\Http\Requests\AdminLoginRequest;
+use App\Models\Admin;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -95,6 +94,9 @@ Route::middleware('auth:admin')->group(function () {
     Route::delete('/admin/logout', [AdminLoginController::class, 'destroy'])->name('admin.login.destroy');
     Route::get('/admin/email', [EmailController::class, 'emailView']);
     Route::post('/admin/email', [EmailController::class, 'emailSend']);
+    Route::get('/admin/newreview', [NewReviewController::class, 'newreviewList']);
+    Route::get('/admin/newreview/{shop_id}', [NewReviewController::class, 'adminreview'])->name('admin.newreview');
+    Route::post('/admin/newreview/delete', [NewReviewController::class, 'adminDelete']);
 });
 
 Route::get('/representative/login', [RepresentativeController::class, 'view'])->name('representative.login');;

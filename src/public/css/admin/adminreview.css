@@ -76,7 +76,17 @@
 }
 
 .review__user {
+    display: flex;
+    justify-content: space-between;
     margin: 10px 0;
+    align-items: baseline;
+}
+
+.delete__button {
+    border: none;
+    border-bottom: 1px solid #000;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 .user__text {

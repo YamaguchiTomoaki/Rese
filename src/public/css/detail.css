@@ -69,6 +69,12 @@
     width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .shop__overview {
+        font-size: 14px;
+    }
+}
+
 .reviewlist__content {
     width: 100%;
 }
@@ -138,13 +144,6 @@
 .star__button input[type=radio]:checked~label {
     color: #305DFF;
 }
-
-@media screen and (max-width: 768px) {
-    .shop__overview {
-        font-size: 14px;
-    }
-}
-
 
 .reservation__content {
     border-radius: 4px;

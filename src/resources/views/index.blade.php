@@ -6,8 +6,17 @@
 
 @section('header')
 <form class="search-form" action="/search" method="get">
-    @csrf
     <div class="search-form__item">
+        <div class="search-form__item-sort">
+            <div class="select__pointer">
+                <select name="sort" onchange="submit(this.form)">
+                    <option value="null">並び替え：評価高/低</option>
+                    <option value="1" @if( request('sort')==1 ) selected @endif>ランダム</option>
+                    <option value="2" @if( request('sort')==2 ) selected @endif>評価が高い順</option>
+                    <option value="3" @if( request('sort')==3 ) selected @endif>評価が低い順</option>
+                </select>
+            </div>
+        </div>
         <div class="search-form__item-area">
             <div class="select__pointer">
                 <select name="area" onchange="submit(this.form)">
@@ -34,6 +43,7 @@
         </div>
     </div>
 </form>
+
 @endsection
 
 @section('content')

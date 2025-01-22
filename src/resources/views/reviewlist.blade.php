@@ -26,9 +26,11 @@
             <div class="review__user">
                 <p class="user__text">{{ $newreviews[$id]['user']['name'] }}</p>
             </div>
+            @if ($newreviews[$id]['image'] != null)
             <div class="review__image">
                 <img class="image__image" src="{{ asset('storage/' . $newreviews[$id]['image']) }}" alt="">
             </div>
+            @endif
             <div class="star__button">
                 <input id="star5" type="radio" name="{{ $id }}" value="5" {{$newreviews[$id]['evaluation'] == '5' ? 'checked' : ''}} disabled>
                 <label for="star5">★</label>

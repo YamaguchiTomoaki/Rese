@@ -44,6 +44,19 @@ class NewReviewController extends Controller
 
     public function create(NewReviewRequest $request)
     {
+        $user = Auth::user();
+        $user_id = $user['id'];
+        $newreview = Newreview::where([
+            ['user_id', '=', $user_id],
+            ['shop_id', '=', $request->shop_id],
+        ])->get();
+        // 戻るボタンを押した時の抜け道を防ぐ処理
+        if ($newreview != "[]") {
+            return redirect(route('newreview.newreview', [
+                'shop_id' => $request->shop_id,
+            ]));
+        }
+
         if ($request->image != null) {
             $file_name = $request->file('image')->getClientOriginalName();
             if (! Storage::exists('public/' . $file_name)) {

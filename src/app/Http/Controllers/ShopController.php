@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
-
 class ShopController extends Controller
 {
     public function index()
@@ -66,6 +65,9 @@ class ShopController extends Controller
         $user = Auth::user();
         $areas = Area::all();
         $genres = Genre::all();
+        $newreviews = Newreview::all();
+        $newreviewsCount = count($newreviews);
+
 
         $shop = Shop::with('area', 'genre')->AreaSearch($request->area)->GenreSearch($request->genre)->ShopSearch($request->name)->get();
 
@@ -81,7 +83,7 @@ class ShopController extends Controller
         }
         $shopArray = $shop->toArray();
         $shopCount = count($shopArray);
-        if ($user != null) {
+        if ($user != null && $favoriteCount != 0) {
             for ($id = 0; $id < $shopCount; $id++) {
                 for ($favoriteId = 0; $favoriteId < $favoriteCount; $favoriteId++) {
                     if ($shopArray[$id]['id'] == $favorite[$favoriteId]['shop_id']) {
@@ -100,6 +102,39 @@ class ShopController extends Controller
         for ($id = 0; $id < $shopCount; $id++) {
             $shopArray[$id]['area'] = $shopArray[$id]['area']['area'];
             $shopArray[$id]['genre'] = $shopArray[$id]['genre']['genre'];
+            $shopArray[$id]['evaluation'] = null;
+            $shopArray[$id]['evaluationcount'] = 0;
+            $shopArray[$id]['evaluationtotal'] = 0;
+        }
+
+        for ($id = 0; $id < $shopCount; $id++) {
+            for ($n_id = 0; $n_id < $newreviewsCount; $n_id++) {
+                if ($shopArray[$id]['id'] == $newreviews[$n_id]['shop_id']) {
+                    $shopArray[$id]['standby'] = $newreviews[$n_id]['evaluation'];
+                    $shopArray[$id]['evaluationcount'] += 1;
+                    $shopArray[$id]['evaluationtotal'] += $shopArray[$id]['standby'];
+                    $shopArray[$id]['evaluation'] = $shopArray[$id]['evaluationtotal'] / $shopArray[$id]['evaluationcount'];
+                }
+            }
+        }
+
+        if ($request->sort == 1) {
+            shuffle($shopArray);
+        } else if ($request->sort == 2) {
+            foreach ($shopArray as $key => $value) {
+                $sort_keys[$key] = $value['evaluation'];
+            }
+            array_multisort($sort_keys, SORT_DESC, $shopArray);
+        } else if ($request->sort == 3) {
+            foreach ($shopArray as $key => $value) {
+                // 無評価のものを最後尾に表示するため
+                if ($value['evaluation'] == null) {
+                    $sort_keys[$key] = 6;
+                } else {
+                    $sort_keys[$key] = $value['evaluation'];
+                }
+            }
+            array_multisort($sort_keys, SORT_ASC, $shopArray);
         }
 
         return view('index', compact('shopArray', 'shopCount', 'areas', 'genres', 'user_id'));

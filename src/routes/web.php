@@ -76,7 +76,7 @@ Route::middleware('auth:web', 'verified')->group(function () {
     Route::post('payment/store', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/qrcode', [QrCodeController::class, 'qrView']);
     Route::delete('/logout', [OriginalLoginController::class, 'destroy'])->name('login.destroy');
-    Route::get('/newreview', [NewReviewController::class, 'newReview']);
+    Route::get('/newreview', [NewReviewController::class, 'newReview'])->name('newreview.newreview');
     Route::post('/newreview', [NewReviewController::class, 'create']);
     Route::get('/newreview/list', [NewReviewController::class, 'list']);
     Route::get('/newreview/edit', [NewReviewController::class, 'edit']);

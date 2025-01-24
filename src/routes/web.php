@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\CsvController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MyPageController;
@@ -33,6 +34,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
+Route::get('/test', [ShopController::class, 'test']);
 Route::post('/register', [OriginalRegisterController::class, 'store']);
 Route::post('/login', [OriginalLoginController::class, 'store']);
 
@@ -112,4 +114,6 @@ Route::middleware('auth:representative')->group(function () {
     Route::post('/representative/edit/update', [ShopController::class, 'update']);
     Route::get('/representative/reservation', [RepresentativeController::class, 'reservationList']);
     Route::get('/representative/reservation/{shop_id}', [RepresentativeController::class, 'reservationView'])->name('representative.reservationView');
+    Route::get('/representative/csv', [CsvController::class, 'csvView'])->name('representative.csv');
+    Route::post('/representative/csv', [CsvController::class, 'create']);
 });

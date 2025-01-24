@@ -116,11 +116,24 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 768px) {
+    .edit__button {
+        font-size: 10px;
+        margin-right: 10px;
+    }
+}
+
 .delete__button {
     border: none;
     border-bottom: 1px solid #000;
     margin-top: 10px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .delete__button {
+        font-size: 10px;
+    }
 }
 
 .star__button {
@@ -139,6 +152,12 @@
     padding: 0 5px;
     color: #ccc;
     font-size: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .star__button label {
+        font-size: 30px;
+    }
 }
 
 .star__button input[type=radio]:checked~label {

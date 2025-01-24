@@ -4,7 +4,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .edit-list__content {
+    .newreview-list__content {
         width: 50%;
     }
 }

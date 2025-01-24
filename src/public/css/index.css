@@ -12,6 +12,13 @@
     position: relative;
 }
 
+@media screen and (max-width: 768px) {
+    .search-form__item-sort {
+        width: 120px;
+        margin-right: 10px;
+    }
+}
+
 .search-form__item-sort select {
     appearance: none;
     width: 100%;
@@ -22,6 +29,12 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .search-form__item-sort select {
+        font-size: 10px;
+    }
 }
 
 .search-form__item-area {

@@ -11,38 +11,37 @@
         <div class="shop__ttl">
             <p class="ttl__text">今回のご利用はいかがでしたか？</p>
         </div>
-        <div class="card__wrap">
-            <div class="card">
-                <div class="card__img">
-                    <img src="{{ asset('storage/' . $shopArray['image']) }}" alt="" />
+        <div class="card">
+            <div class="card__img">
+                <img src="{{ asset('storage/' . $shopArray['image']) }}" alt="" />
+            </div>
+            <div class="card__content">
+                <div class="card__content-ttl">{{ $shopArray['name'] }}</div>
+                <div class="card__content-tag">
+                    <p class="card__content-tag-area">#{{ $shopArray['area']['area'] }}</p>
+                    <p class="card__content-tag-genre">#{{ $shopArray['genre']['genre'] }}</p>
                 </div>
-                <div class="card__content">
-                    <div class="card__content-ttl">{{ $shopArray['name'] }}</div>
-                    <div class="card__content-tag">
-                        <p class="card__content-tag-area">#{{ $shopArray['area']['area'] }}</p>
-                        <p class="card__content-tag-genre">#{{ $shopArray['genre']['genre'] }}</p>
-                    </div>
-                    <div class="card__content-btn">
-                        <a href="/detail/{{ $shopArray['id'] }}" class="card__content-btn-detail">詳しく見る</a>
-                        @if ($shopArray['favorite'] == 1)
-                        <form class="favorite-form" action="/remove" method="post">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{ $user_id }}">
-                            <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
-                            <button class="card__content-btn-favorite--off" type="submit">❤</button>
-                        </form>
-                        @else
-                        <form class="favorite-form" action="/favorite" method="post">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{ $user_id }}">
-                            <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
-                            <button class="card__content-btn-favorite--on" type="submit">❤</button>
-                        </form>
-                        @endif
-                    </div>
+                <div class="card__content-btn">
+                    <a href="/detail/{{ $shopArray['id'] }}" class="card__content-btn-detail">詳しく見る</a>
+                    @if ($shopArray['favorite'] == 1)
+                    <form class="favorite-form" action="/remove" method="post">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ $user_id }}">
+                        <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
+                        <button class="card__content-btn-favorite--off" type="submit">❤</button>
+                    </form>
+                    @else
+                    <form class="favorite-form" action="/favorite" method="post">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ $user_id }}">
+                        <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
+                        <button class="card__content-btn-favorite--on" type="submit">❤</button>
+                    </form>
+                    @endif
                 </div>
             </div>
         </div>
+
 
     </div>
     <div class="review__content">

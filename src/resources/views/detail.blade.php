@@ -41,6 +41,7 @@
             <div class="result__head">
                 <form class="edit-form" action="/newreview/edit" method="get">
                     <input type="hidden" name="newreview_id" value="{{ $newreview[0]['id'] }}">
+                    <input type="hidden" name="shop_id" value="{{ $shopArray['id'] }}">
                     <button type="submit" class="edit__button">口コミを編集</button>
                 </form>
                 <form class="delete-form" action="/newreview/delete" method="post">

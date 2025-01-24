@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Shop extends Model
 {
@@ -16,7 +17,6 @@ class Shop extends Model
     public function area()
     {
         return $this->belongsTo(Area::class, 'areas');
-        //return $this->belongsTo('App\Models\Area');
     }
 
     public function genre()

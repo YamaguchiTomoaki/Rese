@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Routing\Controller;

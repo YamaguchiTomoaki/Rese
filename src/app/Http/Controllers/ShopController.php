@@ -9,11 +9,8 @@ use App\Models\Favorite;
 use App\Models\Genre;
 use App\Models\Newreview;
 use App\Models\Shop;
-use Carbon\Carbon;
-use Faker\Core\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class ShopController extends Controller
@@ -218,27 +215,5 @@ class ShopController extends Controller
         ])->update($shop);
 
         return redirect('/representative');
-    }
-
-    public function test()
-    {
-        $image_url = "https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg";
-        // 画像のみ取得
-        $image = file_get_contents($image_url);
-        // 画像ファイル名開始位置取得
-        $start = strrpos($image_url, '/');
-        // 画像ファイル名取得
-        $file_name = substr($image_url, strrpos($image_url, '/') + 1);
-        // .jpgか.pngの場合のみ保存可能にする
-        $check = substr($file_name, strrpos($file_name, '.'));
-        if ($check == ".jpg" || $check == ".png") {
-            $check_status = 0;
-        } else {
-            $check_status = 1;
-        }
-        // storage/app/publicに同一名ファイルが無ければ保存
-        if (! Storage::exists('public/' . $file_name) && $check_status != 1) {
-            Storage::disk('public')->put($file_name, $image);
-        }
     }
 }

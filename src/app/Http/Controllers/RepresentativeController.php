@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RepresentativeLoginRequest;
 use App\Http\Requests\RepresentativeRegisterRequest;
-use App\Http\Requests\ShopRequest;
 use App\Models\Representative;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;

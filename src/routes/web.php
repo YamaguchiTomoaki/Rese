@@ -7,7 +7,6 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\NewReviewController;
-use App\Http\Controllers\OriginalEmailVerificationPromptController;
 use App\Http\Controllers\OriginalLoginController;
 use App\Http\Controllers\OriginalRegisterController;
 use App\Http\Controllers\PaymentController;
@@ -16,9 +15,6 @@ use App\Http\Controllers\RepresentativeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
-use App\Http\Requests\AdminLoginRequest;
-use App\Models\Admin;
-use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -34,7 +30,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-Route::get('/test', [ShopController::class, 'test']);
 Route::post('/register', [OriginalRegisterController::class, 'store']);
 Route::post('/login', [OriginalLoginController::class, 'store']);
 

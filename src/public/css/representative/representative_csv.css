@@ -73,3 +73,15 @@
         width: 200px;
     }
 }
+
+.csv-form__error-message {
+    color: #f00;
+    margin: 0;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .csv-form__error-message {
+        font-size: 12px;
+    }
+}

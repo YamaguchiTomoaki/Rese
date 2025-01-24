@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NotificationRequest;
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Mail\Mailer;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotificationEmail;

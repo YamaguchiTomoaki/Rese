@@ -122,6 +122,8 @@ class NewReviewController extends Controller
             if (! Storage::exists('public/' . $file_name)) {
                 $request->file('image')->storeAs('public', $file_name);
             }
+        } else if ($request->image_status != null) {
+            $file_name = $request->image;
         } else {
             $file_name = null;
         }

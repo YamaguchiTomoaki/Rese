@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<script src="{{ asset('/js/newreview.js') }}"></script>
+<script src="{{ asset('/js/editreview.js') }}"></script>
 <div class="editreview__content">
     <div class="shop__contet">
         <div class="shop__ttl">
@@ -93,10 +93,15 @@
                 <p class="image__ttl--text">画像の追加</p>
             </div>
             <div class="image__image">
+                <input type="hidden" name="image_status" id="image_status" value="{{ $newreview[0]['image'] }}">
                 <input type="file" name="image" id="image" accept=".jpg,.png" hidden>
                 <span id="span" class="first__line">クリックして写真を追加</span>
                 <span id="span" class="second__line">またはドラッグアンドドロップ</span>
+                @if ($newreview[0]['image'] != null)
+                <img class="preview__image" src="{{ asset('storage/' . $newreview[0]['image']) }}" alt="" hidden>
+                @else
                 <img class="preview__image" src="" alt="" hidden>
+                @endif
             </div>
             <div class="error-message__group">
                 <p class="editreview-form__error-message">
